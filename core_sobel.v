@@ -26,9 +26,9 @@ module core_sobel(
 	);
 
 	input  [7:0] p0,p1,p2,p3,p5,p6,p7,p8;			//8 bit pixels inputs
-	output [7:0] sobel_out;										//8 bit output pixel
+	output [7:0] sobel_out;							//8 bit output pixel
 
-	wire signed [10:0] gx,gy;    						//11 bits because max value of gx and gy is 255*4 and last bit for sign					
+	wire signed [10:0] gx,gy;    					//11 bits because max value of gx and gy is 255*4 and last bit for sign					
 	wire signed [10:0] abs_gx,abs_gy;				//it is used to find the absolute value of gx and gy
 	wire [10:0] sum;										//the max value is 255*8. here no sign bit needed.
 

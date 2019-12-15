@@ -5,5 +5,32 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
+<msg type="warning" file="NgdBuild" num="837" delta="new" >pins &apos;<arg fmt="%s" index="1">I</arg>&apos; and &apos;<arg fmt="%s" index="2">O</arg>&apos; on instance &apos;<arg fmt="%s" index="3">clk_INV_0</arg>&apos; of type &apos;<arg fmt="%s" index="4">INV</arg>&apos; are both connected to the same signal &apos;<arg fmt="%s" index="5">clk_OBUF</arg>&apos;, which forms a ring buffer.
+</msg>
+
+<msg type="warning" file="NgdBuild" num="452" delta="new" ><arg fmt="%s" index="1">logical</arg> net &apos;<arg fmt="%s" index="2">memory_reader_ins/img/dina&lt;7&gt;</arg>&apos; has no driver
+</msg>
+
+<msg type="warning" file="NgdBuild" num="452" delta="new" ><arg fmt="%s" index="1">logical</arg> net &apos;<arg fmt="%s" index="2">memory_reader_ins/img/dina&lt;6&gt;</arg>&apos; has no driver
+</msg>
+
+<msg type="warning" file="NgdBuild" num="452" delta="new" ><arg fmt="%s" index="1">logical</arg> net &apos;<arg fmt="%s" index="2">memory_reader_ins/img/dina&lt;5&gt;</arg>&apos; has no driver
+</msg>
+
+<msg type="warning" file="NgdBuild" num="452" delta="new" ><arg fmt="%s" index="1">logical</arg> net &apos;<arg fmt="%s" index="2">memory_reader_ins/img/dina&lt;4&gt;</arg>&apos; has no driver
+</msg>
+
+<msg type="warning" file="NgdBuild" num="452" delta="new" ><arg fmt="%s" index="1">logical</arg> net &apos;<arg fmt="%s" index="2">memory_reader_ins/img/dina&lt;3&gt;</arg>&apos; has no driver
+</msg>
+
+<msg type="warning" file="NgdBuild" num="452" delta="new" ><arg fmt="%s" index="1">logical</arg> net &apos;<arg fmt="%s" index="2">memory_reader_ins/img/dina&lt;2&gt;</arg>&apos; has no driver
+</msg>
+
+<msg type="warning" file="NgdBuild" num="452" delta="new" ><arg fmt="%s" index="1">logical</arg> net &apos;<arg fmt="%s" index="2">memory_reader_ins/img/dina&lt;1&gt;</arg>&apos; has no driver
+</msg>
+
+<msg type="warning" file="NgdBuild" num="452" delta="new" ><arg fmt="%s" index="1">logical</arg> net &apos;<arg fmt="%s" index="2">memory_reader_ins/img/dina&lt;0&gt;</arg>&apos; has no driver
+</msg>
+
 </messages>
 

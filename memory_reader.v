@@ -20,7 +20,6 @@
 //////////////////////////////////////////////////////////////////////////////////
 `define DEPTH 10000
 `define WIDTH 8
-`define DOUBLE_WIDTH 16
 
 module memory_reader(
 	input clk,
@@ -34,6 +33,8 @@ module memory_reader(
 	
 	reg [6:0] row;
 	reg [6:0] col;
+	reg [6:0] row2;
+	reg [6:0] col2;
 	reg [7:0] mem[99:0][99:0];	// 10000 byte RAM
 	reg read_finished; //indicate read from block memory is finished, need to change method later
 	
@@ -77,13 +78,17 @@ module memory_reader(
 	end
 	
 	always@(posedge clk) begin
-		if (row == 97 && col == 98) begin //condition of read mem finished
+		if (rst) begin
+			row2 = 7'b0;
+			col2 = 7'b0;
+		end
+		if (row2 == 97 && col2 == 98) begin
 			
 		end
 		else if (read_finished) begin
-			if (col == 98) begin
-				col = 7'b0;
-				row = row + 1;
+			if (col2 == 98) begin
+				col2 = 7'b0;
+				row2 = row2 + 1;
 			end
 			
 			mem_bus_out = {
@@ -92,7 +97,7 @@ module memory_reader(
 				mem[row+2][col],	mem[row+2][col+1],	mem[row+2][col+2]
 			};
 			
-			col = col + 1;
+			col2 = col2 + 1;
 		end
 	end
 endmodule

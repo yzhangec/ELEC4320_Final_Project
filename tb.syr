@@ -3,14 +3,14 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 --> Parameter TMPDIR set to xst/projnav.tmp
 
 
-Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.45 secs
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.44 secs
  
 --> Parameter xsthdpdir set to xst
 
 
-Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.45 secs
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.44 secs
  
 --> Reading design: tb.prj
 
@@ -128,12 +128,424 @@ Analysis of file <"tb.prj"> succeeded.
 =========================================================================
 *                     Design Hierarchy Analysis                         *
 =========================================================================
-ERROR:Xst - "tb.v" line 21: Module <tb> has no port.
+Analyzing hierarchy for module <tb> in library <work>.
+
+Analyzing hierarchy for module <memory_reader> in library <work>.
+
+Analyzing hierarchy for module <main_sobel> in library <work>.
+
+Analyzing hierarchy for module <core_sobel> in library <work>.
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing top module <tb>.
+WARNING:Xst:916 - "tb.v" line 40: Delay is ignored for synthesis.
+WARNING:Xst:916 - "tb.v" line 41: Delay is ignored for synthesis.
+WARNING:Xst:916 - "tb.v" line 46: Delay is ignored for synthesis.
+WARNING:Xst:2337 - "tb.v" line 49: File argument of function $fwrite is not constant. Skipping call to system function.
+Module <tb> is correct for synthesis.
+ 
+Analyzing module <memory_reader> in library <work>.
+WARNING:Xst:2211 - "ipcore_dir/img_storage.v" line 43: Instantiating black box module <img_storage>.
+Module <memory_reader> is correct for synthesis.
+ 
+Analyzing module <main_sobel> in library <work>.
+Module <main_sobel> is correct for synthesis.
+ 
+Analyzing module <core_sobel> in library <work>.
+Module <core_sobel> is correct for synthesis.
+ 
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+INFO:Xst:2679 - Register <i> in unit <memory_reader> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <j> in unit <memory_reader> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <mem_bus_out> in unit <memory_reader> has a constant value of 000000000000000000000000000000000000000000000000000000000000000000000000 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <read_en> in unit <main_sobel> has a constant value of 1 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <write_en> in unit <main_sobel> has a constant value of 1 during circuit operation. The register is replaced by logic.
+
+Synthesizing Unit <core_sobel>.
+    Related source file is "core_sobel.v".
+    Found 11-bit adder for signal <abs_gx$addsub0000> created at line 38.
+    Found 11-bit adder for signal <abs_gy$addsub0000> created at line 39.
+    Found 11-bit adder for signal <gx>.
+    Found 11-bit adder for signal <gx$addsub0000> created at line 35.
+    Found 10-bit subtractor for signal <gx$sub0000> created at line 35.
+    Found 10-bit subtractor for signal <gx$sub0001> created at line 35.
+    Found 10-bit subtractor for signal <gx$sub0002> created at line 35.
+    Found 11-bit adder for signal <gy>.
+    Found 11-bit adder for signal <gy$addsub0000> created at line 36.
+    Found 10-bit subtractor for signal <gy$sub0000> created at line 36.
+    Found 10-bit subtractor for signal <gy$sub0001> created at line 36.
+    Found 10-bit subtractor for signal <gy$sub0002> created at line 36.
+    Found 11-bit adder for signal <sum>.
+    Summary:
+	inferred  13 Adder/Subtractor(s).
+Unit <core_sobel> synthesized.
+
+
+Synthesizing Unit <memory_reader>.
+    Related source file is "memory_reader.v".
+    Found 7-bit register for signal <col>.
+    Found 7-bit adder for signal <col$addsub0000> created at line 75.
+    Found 8-bit comparator greater for signal <col$cmp_gt0000> created at line 68.
+    Found 14-bit comparator greater for signal <col$cmp_gt0001> created at line 73.
+    Found 7-bit register for signal <col2>.
+    Found 7-bit adder for signal <col2$addsub0000> created at line 102.
+    Found 14-bit up counter for signal <raddr>.
+    Found 1-bit register for signal <read_finished>.
+    Found 7-bit up counter for signal <row>.
+    Found 8-bit comparator lessequal for signal <row$cmp_le0000> created at line 68.
+    Found 7-bit register for signal <row2>.
+    Found 7-bit adder for signal <row2$addsub0000> created at line 93.
+    Summary:
+	inferred   2 Counter(s).
+	inferred  22 D-type flip-flop(s).
+	inferred   3 Adder/Subtractor(s).
+	inferred   3 Comparator(s).
+Unit <memory_reader> synthesized.
+
+
+Synthesizing Unit <main_sobel>.
+    Related source file is "main_sobel.v".
+WARNING:Xst:646 - Signal <row2<1>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <read_en> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+    Found 8-bit register for signal <bus_out>.
+    Found 24-bit register for signal <row1>.
+    Found 8-bit register for signal <row2<2>>.
+    Found 8-bit register for signal <row2<0>>.
+    Found 24-bit register for signal <row3>.
+    Summary:
+	inferred  72 D-type flip-flop(s).
+Unit <main_sobel> synthesized.
+
+
+Synthesizing Unit <tb>.
+    Related source file is "tb.v".
+WARNING:Xst:1305 - Output <rst> is never assigned. Tied to value 0.
+WARNING:Xst:1872 - Variable <result> is used but never assigned.
+WARNING:Xst:646 - Signal <Bus_out> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+Unit <tb> synthesized.
+
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 16
+ 10-bit subtractor                                     : 6
+ 11-bit adder                                          : 7
+ 7-bit adder                                           : 3
+# Counters                                             : 2
+ 14-bit up counter                                     : 1
+ 7-bit up counter                                      : 1
+# Registers                                            : 13
+ 1-bit register                                        : 1
+ 7-bit register                                        : 3
+ 8-bit register                                        : 9
+# Comparators                                          : 3
+ 14-bit comparator greater                             : 1
+ 8-bit comparator greater                              : 1
+ 8-bit comparator lessequal                            : 1
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+Reading core <ipcore_dir/img_storage.ngc>.
+Loading core <img_storage> for timing and area information for instance <img>.
+WARNING:Xst:1290 - Hierarchical block <main_sobel_ins> is unconnected in block <tb>.
+   It will be removed from the design.
+WARNING:Xst:1426 - The value init of the FF/Latch read_finished hinder the constant cleaning in the block memory_reader_ins.
+   You should achieve better results by setting this init to 1.
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 14
+ 10-bit subtractor                                     : 6
+ 11-bit adder                                          : 7
+ 7-bit adder                                           : 1
+# Counters                                             : 2
+ 14-bit up counter                                     : 1
+ 7-bit up counter                                      : 1
+# Registers                                            : 80
+ Flip-Flops                                            : 80
+# Comparators                                          : 3
+ 14-bit comparator greater                             : 1
+ 8-bit comparator greater                              : 1
+ 8-bit comparator lessequal                            : 1
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+WARNING:Xst:1426 - The value init of the FF/Latch read_finished hinder the constant cleaning in the block memory_reader.
+   You should achieve better results by setting this init to 1.
+WARNING:Xst:2170 - Unit tb : the following signal(s) form a combinatorial loop: clk.
+
+Optimizing unit <tb> ...
+
+Optimizing unit <core_sobel> ...
+
+Optimizing unit <memory_reader> ...
+
+Optimizing unit <main_sobel> ...
+WARNING:Xst:2677 - Node <main_sobel_ins/bus_out_7> of sequential type is unconnected in block <tb>.
+WARNING:Xst:2677 - Node <main_sobel_ins/bus_out_6> of sequential type is unconnected in block <tb>.
+WARNING:Xst:2677 - Node <main_sobel_ins/bus_out_5> of sequential type is unconnected in block <tb>.
+WARNING:Xst:2677 - Node <main_sobel_ins/bus_out_4> of sequential type is unconnected in block <tb>.
+WARNING:Xst:2677 - Node <main_sobel_ins/bus_out_3> of sequential type is unconnected in block <tb>.
+WARNING:Xst:2677 - Node <main_sobel_ins/bus_out_2> of sequential type is unconnected in block <tb>.
+WARNING:Xst:2677 - Node <main_sobel_ins/bus_out_1> of sequential type is unconnected in block <tb>.
+WARNING:Xst:2677 - Node <main_sobel_ins/bus_out_0> of sequential type is unconnected in block <tb>.
+WARNING:Xst:2677 - Node <main_sobel_ins/row1_0_7> of sequential type is unconnected in block <tb>.
+WARNING:Xst:2677 - Node <main_sobel_ins/row1_0_6> of sequential type is unconnected in block <tb>.
+WARNING:Xst:2677 - Node <main_sobel_ins/row1_0_5> of sequential type is unconnected in block <tb>.
+WARNING:Xst:2677 - Node <main_sobel_ins/row1_0_4> of sequential type is unconnected in block <tb>.
+WARNING:Xst:2677 - Node <main_sobel_ins/row1_0_3> of sequential type is unconnected in block <tb>.
+WARNING:Xst:2677 - Node <main_sobel_ins/row1_0_2> of sequential type is unconnected in block <tb>.
+WARNING:Xst:2677 - Node <main_sobel_ins/row1_0_1> of sequential type is unconnected in block <tb>.
+WARNING:Xst:2677 - Node <main_sobel_ins/row1_0_0> of sequential type is unconnected in block <tb>.
+WARNING:Xst:2677 - Node <main_sobel_ins/row1_1_7> of sequential type is unconnected in block <tb>.
+WARNING:Xst:2677 - Node <main_sobel_ins/row1_1_6> of sequential type is unconnected in block <tb>.
+WARNING:Xst:2677 - Node <main_sobel_ins/row1_1_5> of sequential type is unconnected in block <tb>.
+WARNING:Xst:2677 - Node <main_sobel_ins/row1_1_4> of sequential type is unconnected in block <tb>.
+WARNING:Xst:2677 - Node <main_sobel_ins/row1_1_3> of sequential type is unconnected in block <tb>.
+WARNING:Xst:2677 - Node <main_sobel_ins/row1_1_2> of sequential type is unconnected in block <tb>.
+WARNING:Xst:2677 - Node <main_sobel_ins/row1_1_1> of sequential type is unconnected in block <tb>.
+WARNING:Xst:2677 - Node <main_sobel_ins/row1_1_0> of sequential type is unconnected in block <tb>.
+WARNING:Xst:2677 - Node <main_sobel_ins/row2_0_7> of sequential type is unconnected in block <tb>.
+WARNING:Xst:2677 - Node <main_sobel_ins/row2_0_6> of sequential type is unconnected in block <tb>.
+WARNING:Xst:2677 - Node <main_sobel_ins/row2_0_5> of sequential type is unconnected in block <tb>.
+WARNING:Xst:2677 - Node <main_sobel_ins/row2_0_4> of sequential type is unconnected in block <tb>.
+WARNING:Xst:2677 - Node <main_sobel_ins/row2_0_3> of sequential type is unconnected in block <tb>.
+WARNING:Xst:2677 - Node <main_sobel_ins/row2_0_2> of sequential type is unconnected in block <tb>.
+WARNING:Xst:2677 - Node <main_sobel_ins/row2_0_1> of sequential type is unconnected in block <tb>.
+WARNING:Xst:2677 - Node <main_sobel_ins/row2_0_0> of sequential type is unconnected in block <tb>.
+WARNING:Xst:2677 - Node <main_sobel_ins/row2_2_7> of sequential type is unconnected in block <tb>.
+WARNING:Xst:2677 - Node <main_sobel_ins/row2_2_6> of sequential type is unconnected in block <tb>.
+WARNING:Xst:2677 - Node <main_sobel_ins/row2_2_5> of sequential type is unconnected in block <tb>.
+WARNING:Xst:2677 - Node <main_sobel_ins/row2_2_4> of sequential type is unconnected in block <tb>.
+WARNING:Xst:2677 - Node <main_sobel_ins/row2_2_3> of sequential type is unconnected in block <tb>.
+WARNING:Xst:2677 - Node <main_sobel_ins/row2_2_2> of sequential type is unconnected in block <tb>.
+WARNING:Xst:2677 - Node <main_sobel_ins/row2_2_1> of sequential type is unconnected in block <tb>.
+WARNING:Xst:2677 - Node <main_sobel_ins/row2_2_0> of sequential type is unconnected in block <tb>.
+WARNING:Xst:2677 - Node <main_sobel_ins/row1_2_7> of sequential type is unconnected in block <tb>.
+WARNING:Xst:2677 - Node <main_sobel_ins/row1_2_6> of sequential type is unconnected in block <tb>.
+WARNING:Xst:2677 - Node <main_sobel_ins/row1_2_5> of sequential type is unconnected in block <tb>.
+WARNING:Xst:2677 - Node <main_sobel_ins/row1_2_4> of sequential type is unconnected in block <tb>.
+WARNING:Xst:2677 - Node <main_sobel_ins/row1_2_3> of sequential type is unconnected in block <tb>.
+WARNING:Xst:2677 - Node <main_sobel_ins/row1_2_2> of sequential type is unconnected in block <tb>.
+WARNING:Xst:2677 - Node <main_sobel_ins/row1_2_1> of sequential type is unconnected in block <tb>.
+WARNING:Xst:2677 - Node <main_sobel_ins/row1_2_0> of sequential type is unconnected in block <tb>.
+WARNING:Xst:2677 - Node <main_sobel_ins/row3_0_7> of sequential type is unconnected in block <tb>.
+WARNING:Xst:2677 - Node <main_sobel_ins/row3_0_6> of sequential type is unconnected in block <tb>.
+WARNING:Xst:2677 - Node <main_sobel_ins/row3_0_5> of sequential type is unconnected in block <tb>.
+WARNING:Xst:2677 - Node <main_sobel_ins/row3_0_4> of sequential type is unconnected in block <tb>.
+WARNING:Xst:2677 - Node <main_sobel_ins/row3_0_3> of sequential type is unconnected in block <tb>.
+WARNING:Xst:2677 - Node <main_sobel_ins/row3_0_2> of sequential type is unconnected in block <tb>.
+WARNING:Xst:2677 - Node <main_sobel_ins/row3_0_1> of sequential type is unconnected in block <tb>.
+WARNING:Xst:2677 - Node <main_sobel_ins/row3_0_0> of sequential type is unconnected in block <tb>.
+WARNING:Xst:2677 - Node <main_sobel_ins/row3_1_7> of sequential type is unconnected in block <tb>.
+WARNING:Xst:2677 - Node <main_sobel_ins/row3_1_6> of sequential type is unconnected in block <tb>.
+WARNING:Xst:2677 - Node <main_sobel_ins/row3_1_5> of sequential type is unconnected in block <tb>.
+WARNING:Xst:2677 - Node <main_sobel_ins/row3_1_4> of sequential type is unconnected in block <tb>.
+WARNING:Xst:2677 - Node <main_sobel_ins/row3_1_3> of sequential type is unconnected in block <tb>.
+WARNING:Xst:2677 - Node <main_sobel_ins/row3_1_2> of sequential type is unconnected in block <tb>.
+WARNING:Xst:2677 - Node <main_sobel_ins/row3_1_1> of sequential type is unconnected in block <tb>.
+WARNING:Xst:2677 - Node <main_sobel_ins/row3_1_0> of sequential type is unconnected in block <tb>.
+WARNING:Xst:2677 - Node <main_sobel_ins/row3_2_7> of sequential type is unconnected in block <tb>.
+WARNING:Xst:2677 - Node <main_sobel_ins/row3_2_6> of sequential type is unconnected in block <tb>.
+WARNING:Xst:2677 - Node <main_sobel_ins/row3_2_5> of sequential type is unconnected in block <tb>.
+WARNING:Xst:2677 - Node <main_sobel_ins/row3_2_4> of sequential type is unconnected in block <tb>.
+WARNING:Xst:2677 - Node <main_sobel_ins/row3_2_3> of sequential type is unconnected in block <tb>.
+WARNING:Xst:2677 - Node <main_sobel_ins/row3_2_2> of sequential type is unconnected in block <tb>.
+WARNING:Xst:2677 - Node <main_sobel_ins/row3_2_1> of sequential type is unconnected in block <tb>.
+WARNING:Xst:2677 - Node <main_sobel_ins/row3_2_0> of sequential type is unconnected in block <tb>.
+
+Mapping all equations...
+WARNING:Xst:2016 - Found a loop when searching source clock on port 'clk:O'
+Last warning will be issued only once.
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block tb, actual ratio is 0.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 29
+ Flip-Flops                                            : 29
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : tb.ngr
+Top Level Output File Name         : tb
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 2
+
+Cell Usage :
+# BELS                             : 114
+#      GND                         : 2
+#      INV                         : 3
+#      LUT1                        : 13
+#      LUT2                        : 2
+#      LUT3                        : 7
+#      LUT4                        : 5
+#      LUT5                        : 12
+#      LUT6                        : 41
+#      MUXCY                       : 13
+#      VCC                         : 2
+#      XORCY                       : 14
+# FlipFlops/Latches                : 32
+#      FD                          : 1
+#      FDE                         : 3
+#      FDR                         : 28
+# RAMS                             : 5
+#      RAMB18                      : 5
+# IO Buffers                       : 2
+#      OBUF                        : 2
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 5vlx110tff1136-1 
+
+
+Slice Logic Utilization: 
+ Number of Slice Registers:              32  out of  69120     0%  
+ Number of Slice LUTs:                   83  out of  69120     0%  
+    Number used as Logic:                83  out of  69120     0%  
+
+Slice Logic Distribution: 
+ Number of LUT Flip Flop pairs used:     86
+   Number with an unused Flip Flop:      54  out of     86    62%  
+   Number with an unused LUT:             3  out of     86     3%  
+   Number of fully used LUT-FF pairs:    29  out of     86    33%  
+   Number of unique control sets:         4
+
+IO Utilization: 
+ Number of IOs:                           2
+ Number of bonded IOBs:                   2  out of    640     0%  
+
+Specific Feature Utilization:
+ Number of Block RAM/FIFO:                3  out of    148     2%  
+    Number using Block RAM only:          3
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)                                                                                                                         | Load  |
+-----------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------+-------+
+clk_OBUF(clk_INV_0:O)              | NONE(*)(memory_reader_ins/img/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/sel_pipe_0)                       | 37    |
+memory_reader_ins/img/N1           | NONE(memory_reader_ins/img/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/v5_init.ram/SP.SINGLE_PRIM18.SP)| 5     |
+-----------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------+-------+
+(*) This 1 clock signal(s) are generated by combinatorial logic,
+and XST is not able to identify which are the primary clock signals.
+Please use the CLOCK_SIGNAL constraint to specify the clock signal(s) generated by combinatorial logic.
+INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -1
+
+   Minimum period: 5.104ns (Maximum Frequency: 195.925MHz)
+   Minimum input arrival time before clock: No path found
+   Maximum output required time after clock: No path found
+   Maximum combinational path delay: No path found
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk_OBUF'
+  Clock period: 5.104ns (frequency: 195.925MHz)
+  Total number of paths / destination ports: 2045 / 114
+-------------------------------------------------------------------------
+Delay:               5.104ns (Levels of Logic = 5)
+  Source:            memory_reader_ins/img/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/v5_init.ram/SP.SINGLE_PRIM18.SP (RAM)
+  Destination:       memory_reader_ins/col_6 (FF)
+  Source Clock:      clk_OBUF falling
+  Destination Clock: clk_OBUF falling
+
+  Data Path: memory_reader_ins/img/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/v5_init.ram/SP.SINGLE_PRIM18.SP to memory_reader_ins/col_6
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     RAMB18:CLKA->DOA1     1   2.180   0.789  U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/v5_init.ram/SP.SINGLE_PRIM18.SP (U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.ram_douta<1>)
+     LUT5:I1->O            2   0.094   0.794  U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/Mmux_dout_mux41 (douta<3>)
+     end scope: 'memory_reader_ins/img'
+     LUT4:I0->O            1   0.094   0.480  memory_reader_ins/raddr_not00011_SW0_1 (memory_reader_ins/raddr_not00011_SW0)
+     LUT6:I5->O            2   0.094   0.485  memory_reader_ins/raddr_not00011 (memory_reader_ins/col_and0000)
+     LUT6:I5->O            1   0.094   0.000  memory_reader_ins/col_6_rstpot (memory_reader_ins/col_6_rstpot)
+     FDR:D                    -0.018          memory_reader_ins/col_6
+    ----------------------------------------
+    Total                      5.104ns (2.556ns logic, 2.548ns route)
+                                       (50.1% logic, 49.9% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 15.00 secs
+Total CPU time to Xst completion: 14.78 secs
+ 
 --> 
 
-Total memory usage is 4537912 kilobytes
+Total memory usage is 4603940 kilobytes
 
-Number of errors   :    1 (   0 filtered)
-Number of warnings :    0 (   0 filtered)
-Number of infos    :    0 (   0 filtered)
+Number of errors   :    0 (   0 filtered)
+Number of warnings :   86 (   0 filtered)
+Number of infos    :    6 (   0 filtered)
 

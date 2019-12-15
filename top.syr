@@ -4,13 +4,13 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.46 secs
+Total CPU time to Xst completion: 0.44 secs
  
 --> Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.46 secs
+Total CPU time to Xst completion: 0.44 secs
  
 --> Reading design: top.prj
 
@@ -133,7 +133,7 @@ Analysis of file <"top.prj"> succeeded.
 ERROR:Xst - "top.v" line 21: Module <top> has no port.
 --> 
 
-Total memory usage is 4537964 kilobytes
+Total memory usage is 4537916 kilobytes
 
 Number of errors   :    1 (   0 filtered)
 Number of warnings :    0 (   0 filtered)

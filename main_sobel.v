@@ -50,7 +50,6 @@ module main_sobel(
 			bus_out = 8'hff;			// Set bus_out reg value to FF
 		end
 		else if(write_en) begin		//condition for writing data to 3x3 RAM block
-			//writes the data at bus_in to RAM location pointed by WAddr (???)
 			{row1[0],row1[1],row1[2],row2[0],row2[1],row2[2],row3[0],row3[1],row3[2]} = mem_bus_out;
 			bus_out = sobel_out;
 		end 
