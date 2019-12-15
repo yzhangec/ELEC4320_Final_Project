@@ -77,7 +77,7 @@ module memory_reader(
 	end
 	
 	always@(posedge clk) begin
-		if (row == 97 && col == 98) begin
+		if (row == 97 && col == 98) begin //condition of read mem finished
 			
 		end
 		else if (read_finished) begin

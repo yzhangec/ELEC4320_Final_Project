@@ -1,0 +1,5 @@
+set -tmpdir "C:/Users/eason/Desktop/Test/Test/xst/projnav.tmp"
+set -xsthdpdir "C:/Users/eason/Desktop/Test/Test/xst"
+elaborate
+-ifn memory_reader.prj
+-ifmt mixed

@@ -1,29 +1,11 @@
-Running: C:\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\fuse.exe -intstyle ise -incremental -lib unisims_ver -lib unimacro_ver -lib xilinxcorelib_ver -lib secureip -o C:/Users/eason/Desktop/Test/Test/tb_isim_beh.exe -prj C:/Users/eason/Desktop/Test/Test/tb_beh.prj work.tb work.glbl 
+Running: C:\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\fuse.exe -intstyle ise -incremental -lib simprims_ver -lib unisims_ver -lib unimacro_ver -lib xilinxcorelib_ver -lib secureip -o C:/Users/eason/Desktop/Test/Test/top_isim_par.exe -prj C:/Users/eason/Desktop/Test/Test/top_par.prj work.top work.glbl 
 ISim P.20131013 (signature 0x7708f090)
 Number of CPUs detected in this system: 8
 Turning on mult-threading, number of parallel sub-compilation jobs: 16 
 Determining compilation order of HDL files
-Analyzing Verilog file "C:/Users/eason/Desktop/Test/Test/ipcore_dir/img_storage.v" into library work
-Analyzing Verilog file "C:/Users/eason/Desktop/Test/Test/core_sobel.v" into library work
-Analyzing Verilog file "C:/Users/eason/Desktop/Test/Test/memory_reader.v" into library work
-Analyzing Verilog file "C:/Users/eason/Desktop/Test/Test/main_sobel.v" into library work
-Analyzing Verilog file "C:/Users/eason/Desktop/Test/Test/tb.v" into library work
-Analyzing Verilog file "C:/Xilinx/14.7/ISE_DS/ISE//verilog/src/glbl.v" into library work
+Analyzing Verilog file "C:/Users/eason/Desktop/Test/Test/netgen/par/main_sobel_timesim.v" into library work
+Analyzing Verilog file "C:/Users/eason/Desktop/Test/Test/top.v" into library work
 Starting static elaboration
-Completed static elaboration
-Compiling module core_sobel
-Compiling module main_sobel
-Compiling module BLK_MEM_GEN_V7_3_output_stage(C_...
-Compiling module BLK_MEM_GEN_V7_3_softecc_output_...
-Compiling module BLK_MEM_GEN_V7_3_mem_module(C_CO...
-Compiling module BLK_MEM_GEN_V7_3(C_FAMILY="virte...
-Compiling module img_storage
-Compiling module memory_reader
-Compiling module tb
-Compiling module glbl
-Time Resolution for simulation is 1ps.
-Waiting for 1 sub-compilation(s) to finish...
-Compiled 10 Verilog Units
-Built simulation executable C:/Users/eason/Desktop/Test/Test/tb_isim_beh.exe
-Fuse Memory Usage: 32756 KB
-Fuse CPU Usage: 780 ms
+ERROR:HDLCompiler:1654 - "C:/Users/eason/Desktop/Test/Test/top.v" Line 27: Instantiating <tb_ins> from unknown module <tb>
+ERROR:HDLCompiler:1654 - "C:/Users/eason/Desktop/Test/Test/top.v" Line 29: Instantiating <memory_reader_ins> from unknown module <memory_reader>
+ERROR:Simulator:778 - Static elaboration of top level Verilog design unit(s) in library work failed

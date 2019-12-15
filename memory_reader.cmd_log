@@ -1,0 +1,2 @@
+vhdtdtfi -lib work C:/Users/eason/Desktop/Test/Test/memory_reader.v -lang verilog -prj Test -o memory_reader.spl -module memory_reader -template C:/Xilinx/14.7/ISE_DS/ISE//data/splveri.tft -deleteonerror 
+spl2sym -intstyle ise -family virtex5 memory_reader.spl C:/Users/eason/Desktop/Test/Test/memory_reader.sym 

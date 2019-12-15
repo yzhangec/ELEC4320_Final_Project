@@ -1,0 +1,5 @@
+verilog work "ipcore_dir/img_storage.v"
+verilog work "core_sobel.v"
+verilog work "memory_reader.v"
+verilog work "main_sobel.v"
+verilog work "tb.v"

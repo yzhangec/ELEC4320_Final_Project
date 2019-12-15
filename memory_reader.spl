@@ -1,0 +1,9 @@
+[Inputs]
+clk
+rst
+[Outputs]
+=mem_bus_out[71:0]=
+[BiDir]
+[ATTRIBUTES]
+VeriModel memory_reader
+

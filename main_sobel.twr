@@ -1,0 +1,141 @@
+--------------------------------------------------------------------------------
+Release 14.7 Trace  (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+C:\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\trce.exe -intstyle ise -v 3 -s 1
+-n 3 -fastpaths -xml main_sobel.twx main_sobel.ncd -o main_sobel.twr
+main_sobel.pcf
+
+Design file:              main_sobel.ncd
+Physical constraint file: main_sobel.pcf
+Device,package,speed:     xc5vlx110t,ff1136,-1 (PRODUCTION 1.73 2013-10-13, STEPPING level 0)
+Report level:             verbose report
+
+Environment Variable      Effect 
+--------------------      ------ 
+NONE                      No environment variables were set
+--------------------------------------------------------------------------------
+
+INFO:Timing:2698 - No timing constraints found, doing default enumeration.
+INFO:Timing:3412 - To improve timing, see the Timing Closure User Guide (UG612).
+INFO:Timing:2752 - To get complete path coverage, use the unconstrained paths 
+   option. All paths that are not constrained will be reported in the 
+   unconstrained paths section(s) of the report.
+INFO:Timing:3339 - The clock-to-out numbers in this timing report are based on 
+   a 50 Ohm transmission line loading model.  For the details of this model, 
+   and for more information on accounting for different loading conditions, 
+   please see the device datasheet.
+
+
+
+Data Sheet report:
+-----------------
+All values displayed in nanoseconds (ns)
+
+Setup/Hold to clock clk
+---------------+------------+------------+------------------+--------+
+               |Max Setup to|Max Hold to |                  | Clock  |
+Source         | clk (edge) | clk (edge) |Internal Clock(s) | Phase  |
+---------------+------------+------------+------------------+--------+
+mem_bus_out<0> |    0.146(R)|    2.060(R)|clk_BUFGP         |   0.000|
+mem_bus_out<1> |    0.326(R)|    1.896(R)|clk_BUFGP         |   0.000|
+mem_bus_out<2> |    0.390(R)|    1.838(R)|clk_BUFGP         |   0.000|
+mem_bus_out<3> |    0.359(R)|    1.864(R)|clk_BUFGP         |   0.000|
+mem_bus_out<4> |    0.130(R)|    2.063(R)|clk_BUFGP         |   0.000|
+mem_bus_out<5> |    0.360(R)|    1.852(R)|clk_BUFGP         |   0.000|
+mem_bus_out<6> |    0.048(R)|    2.145(R)|clk_BUFGP         |   0.000|
+mem_bus_out<7> |    0.308(R)|    1.898(R)|clk_BUFGP         |   0.000|
+mem_bus_out<8> |   -0.244(R)|    2.319(R)|clk_BUFGP         |   0.000|
+mem_bus_out<9> |   -0.157(R)|    2.240(R)|clk_BUFGP         |   0.000|
+mem_bus_out<10>|   -0.175(R)|    2.256(R)|clk_BUFGP         |   0.000|
+mem_bus_out<11>|    0.007(R)|    2.088(R)|clk_BUFGP         |   0.000|
+mem_bus_out<12>|   -0.479(R)|    2.509(R)|clk_BUFGP         |   0.000|
+mem_bus_out<13>|   -0.540(R)|    2.563(R)|clk_BUFGP         |   0.000|
+mem_bus_out<14>|   -0.451(R)|    2.483(R)|clk_BUFGP         |   0.000|
+mem_bus_out<15>|   -0.535(R)|    2.558(R)|clk_BUFGP         |   0.000|
+mem_bus_out<16>|    0.120(R)|    2.088(R)|clk_BUFGP         |   0.000|
+mem_bus_out<17>|   -0.047(R)|    2.239(R)|clk_BUFGP         |   0.000|
+mem_bus_out<18>|   -0.067(R)|    2.257(R)|clk_BUFGP         |   0.000|
+mem_bus_out<19>|   -0.052(R)|    2.245(R)|clk_BUFGP         |   0.000|
+mem_bus_out<20>|    0.519(R)|    1.757(R)|clk_BUFGP         |   0.000|
+mem_bus_out<21>|    0.620(R)|    1.666(R)|clk_BUFGP         |   0.000|
+mem_bus_out<22>|    0.707(R)|    1.585(R)|clk_BUFGP         |   0.000|
+mem_bus_out<23>|    0.093(R)|    2.153(R)|clk_BUFGP         |   0.000|
+mem_bus_out<24>|   -0.257(R)|    2.463(R)|clk_BUFGP         |   0.000|
+mem_bus_out<25>|   -0.395(R)|    2.590(R)|clk_BUFGP         |   0.000|
+mem_bus_out<26>|   -0.524(R)|    2.710(R)|clk_BUFGP         |   0.000|
+mem_bus_out<27>|   -0.589(R)|    2.768(R)|clk_BUFGP         |   0.000|
+mem_bus_out<28>|   -0.385(R)|    2.606(R)|clk_BUFGP         |   0.000|
+mem_bus_out<29>|   -0.372(R)|    2.593(R)|clk_BUFGP         |   0.000|
+mem_bus_out<30>|   -0.390(R)|    2.612(R)|clk_BUFGP         |   0.000|
+mem_bus_out<31>|   -0.510(R)|    2.721(R)|clk_BUFGP         |   0.000|
+mem_bus_out<40>|   -0.400(R)|    2.589(R)|clk_BUFGP         |   0.000|
+mem_bus_out<41>|   -0.545(R)|    2.726(R)|clk_BUFGP         |   0.000|
+mem_bus_out<42>|   -0.577(R)|    2.753(R)|clk_BUFGP         |   0.000|
+mem_bus_out<43>|   -0.698(R)|    2.868(R)|clk_BUFGP         |   0.000|
+mem_bus_out<44>|   -0.216(R)|    2.419(R)|clk_BUFGP         |   0.000|
+mem_bus_out<45>|   -0.449(R)|    2.633(R)|clk_BUFGP         |   0.000|
+mem_bus_out<46>|   -0.522(R)|    2.702(R)|clk_BUFGP         |   0.000|
+mem_bus_out<47>|   -0.713(R)|    2.876(R)|clk_BUFGP         |   0.000|
+mem_bus_out<48>|    0.039(R)|    2.220(R)|clk_BUFGP         |   0.000|
+mem_bus_out<49>|    0.097(R)|    2.164(R)|clk_BUFGP         |   0.000|
+mem_bus_out<50>|    0.099(R)|    2.163(R)|clk_BUFGP         |   0.000|
+mem_bus_out<51>|    0.092(R)|    2.169(R)|clk_BUFGP         |   0.000|
+mem_bus_out<52>|   -0.372(R)|    2.571(R)|clk_BUFGP         |   0.000|
+mem_bus_out<53>|   -0.422(R)|    2.618(R)|clk_BUFGP         |   0.000|
+mem_bus_out<54>|   -0.473(R)|    2.667(R)|clk_BUFGP         |   0.000|
+mem_bus_out<55>|   -0.487(R)|    2.679(R)|clk_BUFGP         |   0.000|
+mem_bus_out<56>|   -0.284(R)|    2.382(R)|clk_BUFGP         |   0.000|
+mem_bus_out<57>|   -0.320(R)|    2.415(R)|clk_BUFGP         |   0.000|
+mem_bus_out<58>|   -0.417(R)|    2.505(R)|clk_BUFGP         |   0.000|
+mem_bus_out<59>|   -0.428(R)|    2.513(R)|clk_BUFGP         |   0.000|
+mem_bus_out<60>|   -0.406(R)|    2.447(R)|clk_BUFGP         |   0.000|
+mem_bus_out<61>|   -0.249(R)|    2.301(R)|clk_BUFGP         |   0.000|
+mem_bus_out<62>|   -0.640(R)|    2.660(R)|clk_BUFGP         |   0.000|
+mem_bus_out<63>|   -0.313(R)|    2.361(R)|clk_BUFGP         |   0.000|
+mem_bus_out<64>|   -0.438(R)|    2.670(R)|clk_BUFGP         |   0.000|
+mem_bus_out<65>|   -0.382(R)|    2.618(R)|clk_BUFGP         |   0.000|
+mem_bus_out<66>|   -0.282(R)|    2.528(R)|clk_BUFGP         |   0.000|
+mem_bus_out<67>|   -0.143(R)|    2.399(R)|clk_BUFGP         |   0.000|
+mem_bus_out<68>|   -0.469(R)|    2.664(R)|clk_BUFGP         |   0.000|
+mem_bus_out<69>|   -0.624(R)|    2.806(R)|clk_BUFGP         |   0.000|
+mem_bus_out<70>|   -0.359(R)|    2.564(R)|clk_BUFGP         |   0.000|
+mem_bus_out<71>|   -0.291(R)|    2.500(R)|clk_BUFGP         |   0.000|
+rst            |    1.977(R)|    1.926(R)|clk_BUFGP         |   0.000|
+---------------+------------+------------+------------------+--------+
+
+Clock clk to Pad
+------------+------------+------------------+--------+
+            | clk (edge) |                  | Clock  |
+Destination |   to PAD   |Internal Clock(s) | Phase  |
+------------+------------+------------------+--------+
+bus_out<0>  |    9.238(R)|clk_BUFGP         |   0.000|
+bus_out<1>  |    9.026(R)|clk_BUFGP         |   0.000|
+bus_out<2>  |    9.181(R)|clk_BUFGP         |   0.000|
+bus_out<3>  |    9.228(R)|clk_BUFGP         |   0.000|
+bus_out<4>  |    9.042(R)|clk_BUFGP         |   0.000|
+bus_out<5>  |    9.163(R)|clk_BUFGP         |   0.000|
+bus_out<6>  |    9.086(R)|clk_BUFGP         |   0.000|
+bus_out<7>  |    9.197(R)|clk_BUFGP         |   0.000|
+------------+------------+------------------+--------+
+
+Clock to Setup on destination clock clk
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk            |    8.004|         |         |         |
+---------------+---------+---------+---------+---------+
+
+
+Analysis completed Sun Dec 15 20:13:05 2019 
+--------------------------------------------------------------------------------
+
+Trace Settings:
+-------------------------
+Trace Settings 
+
+Peak Memory Usage: 4790 MB
+
+
+

@@ -1,0 +1,434 @@
+Release 14.7 - xst P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.43 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.43 secs
+ 
+--> Reading design: main_sobel.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "main_sobel.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "main_sobel"
+Output Format                      : NGC
+Target Device                      : xc5vlx110t-1-ff1136
+
+---- Source Options
+Top Module Name                    : main_sobel
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Use DSP Block                      : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+LUT Combining                      : Auto
+Reduce Control Sets                : Auto
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 32
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Auto
+Use Synchronous Set                : Auto
+Use Synchronous Reset              : Auto
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Power Reduction                    : NO
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+DSP48 Utilization Ratio            : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+---- Other Options
+Cores Search Directories           : {"ipcore_dir"  }
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling verilog file "core_sobel.v" in library work
+Compiling verilog file "main_sobel.v" in library work
+Module <core_sobel> compiled
+Module <main_sobel> compiled
+No errors in compilation
+Analysis of file <"main_sobel.prj"> succeeded.
+ 
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for module <main_sobel> in library <work>.
+
+Analyzing hierarchy for module <core_sobel> in library <work>.
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing top module <main_sobel>.
+Module <main_sobel> is correct for synthesis.
+ 
+Analyzing module <core_sobel> in library <work>.
+Module <core_sobel> is correct for synthesis.
+ 
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+INFO:Xst:2679 - Register <read_en> in unit <main_sobel> has a constant value of 1 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <write_en> in unit <main_sobel> has a constant value of 1 during circuit operation. The register is replaced by logic.
+
+Synthesizing Unit <core_sobel>.
+    Related source file is "core_sobel.v".
+    Found 11-bit adder for signal <abs_gx$addsub0000> created at line 38.
+    Found 11-bit adder for signal <abs_gy$addsub0000> created at line 39.
+    Found 11-bit adder for signal <gx>.
+    Found 11-bit adder for signal <gx$addsub0000> created at line 35.
+    Found 10-bit subtractor for signal <gx$sub0000> created at line 35.
+    Found 10-bit subtractor for signal <gx$sub0001> created at line 35.
+    Found 10-bit subtractor for signal <gx$sub0002> created at line 35.
+    Found 11-bit adder for signal <gy>.
+    Found 11-bit adder for signal <gy$addsub0000> created at line 36.
+    Found 10-bit subtractor for signal <gy$sub0000> created at line 36.
+    Found 10-bit subtractor for signal <gy$sub0001> created at line 36.
+    Found 10-bit subtractor for signal <gy$sub0002> created at line 36.
+    Found 11-bit adder for signal <sum>.
+    Summary:
+	inferred  13 Adder/Subtractor(s).
+Unit <core_sobel> synthesized.
+
+
+Synthesizing Unit <main_sobel>.
+    Related source file is "main_sobel.v".
+WARNING:Xst:646 - Signal <row2<1>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <read_en> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+    Found 8-bit register for signal <bus_out>.
+    Found 32-bit up counter for signal <count>.
+    Found 24-bit register for signal <row1>.
+    Found 8-bit register for signal <row2<2>>.
+    Found 8-bit register for signal <row2<0>>.
+    Found 24-bit register for signal <row3>.
+    Summary:
+	inferred   1 Counter(s).
+	inferred  72 D-type flip-flop(s).
+Unit <main_sobel> synthesized.
+
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 13
+ 10-bit subtractor                                     : 6
+ 11-bit adder                                          : 7
+# Registers                                            : 9
+ 8-bit register                                        : 9
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 13
+ 10-bit subtractor                                     : 6
+ 11-bit adder                                          : 7
+# Registers                                            : 72
+ Flip-Flops                                            : 72
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+
+Optimizing unit <main_sobel> ...
+
+Optimizing unit <core_sobel> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block main_sobel, actual ratio is 0.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 72
+ Flip-Flops                                            : 72
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : main_sobel.ngr
+Top Level Output File Name         : main_sobel
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 82
+
+Cell Usage :
+# BELS                             : 306
+#      GND                         : 1
+#      INV                         : 1
+#      LUT1                        : 2
+#      LUT2                        : 51
+#      LUT3                        : 22
+#      LUT4                        : 14
+#      LUT5                        : 4
+#      LUT6                        : 33
+#      MUXCY                       : 84
+#      VCC                         : 1
+#      XORCY                       : 93
+# FlipFlops/Latches                : 72
+#      FDE                         : 64
+#      FDS                         : 8
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 73
+#      IBUF                        : 65
+#      OBUF                        : 8
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 5vlx110tff1136-1 
+
+
+Slice Logic Utilization: 
+ Number of Slice Registers:              72  out of  69120     0%  
+ Number of Slice LUTs:                  127  out of  69120     0%  
+    Number used as Logic:               127  out of  69120     0%  
+
+Slice Logic Distribution: 
+ Number of LUT Flip Flop pairs used:    179
+   Number with an unused Flip Flop:     107  out of    179    59%  
+   Number with an unused LUT:            52  out of    179    29%  
+   Number of fully used LUT-FF pairs:    20  out of    179    11%  
+   Number of unique control sets:         2
+
+IO Utilization: 
+ Number of IOs:                          82
+ Number of bonded IOBs:                  74  out of    640    11%  
+
+Specific Feature Utilization:
+ Number of BUFG/BUFGCTRLs:                1  out of     32     3%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+clk                                | BUFGP                  | 72    |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -1
+
+   Minimum period: 7.107ns (Maximum Frequency: 140.706MHz)
+   Minimum input arrival time before clock: 2.118ns
+   Maximum output required time after clock: 3.259ns
+   Maximum combinational path delay: No path found
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk'
+  Clock period: 7.107ns (frequency: 140.706MHz)
+  Total number of paths / destination ports: 1607403 / 8
+-------------------------------------------------------------------------
+Delay:               7.107ns (Levels of Logic = 12)
+  Source:            row2_2_0 (FF)
+  Destination:       bus_out_0 (FF)
+  Source Clock:      clk rising
+  Destination Clock: clk rising
+
+  Data Path: row2_2_0 to bus_out_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDE:C->Q              1   0.471   0.576  row2_2_0 (row2_2_0)
+     LUT2:I0->O            1   0.094   0.000  sobel/Msub_gx_sub0000_lut<0> (sobel/Msub_gx_sub0000_lut<0>)
+     MUXCY:S->O            1   0.372   0.000  sobel/Msub_gx_sub0000_cy<0> (sobel/Msub_gx_sub0000_cy<0>)
+     MUXCY:CI->O           1   0.026   0.000  sobel/Msub_gx_sub0000_cy<1> (sobel/Msub_gx_sub0000_cy<1>)
+     XORCY:CI->O           3   0.357   1.080  sobel/Msub_gx_sub0000_xor<2> (sobel/gx_sub0000<2>)
+     LUT6:I0->O            1   0.094   0.000  sobel/Madd_gx_Madd_lut<4> (sobel/Madd_gx_Madd_lut<4>)
+     MUXCY:S->O            1   0.372   0.000  sobel/Madd_gx_Madd_cy<4> (sobel/Madd_gx_Madd_cy<4>)
+     XORCY:CI->O           8   0.357   1.107  sobel/Madd_gx_Madd_xor<5> (sobel/gx<5>)
+     LUT6:I0->O            1   0.094   0.576  sobel/abs_gx<8>1 (sobel/abs_gx<8>)
+     LUT2:I0->O            1   0.094   0.000  sobel/Madd_sum_lut<8> (sobel/Madd_sum_lut<8>)
+     MUXCY:S->O            1   0.372   0.000  sobel/Madd_sum_cy<8> (sobel/Madd_sum_cy<8>)
+     XORCY:CI->O           8   0.357   0.614  sobel/Madd_sum_xor<9> (sobel/sum<9>)
+     LUT4:I2->O            1   0.094   0.000  sobel/sobel_out<7>1 (sobel_out<7>)
+     FDS:D                    -0.018          bus_out_7
+    ----------------------------------------
+    Total                      7.107ns (3.154ns logic, 3.953ns route)
+                                       (44.4% logic, 55.6% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
+  Total number of paths / destination ports: 136 / 136
+-------------------------------------------------------------------------
+Offset:              2.118ns (Levels of Logic = 2)
+  Source:            rst (PAD)
+  Destination:       row3_2_0 (FF)
+  Destination Clock: clk rising
+
+  Data Path: rst to row3_2_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             9   0.818   0.380  rst_IBUF (rst_IBUF)
+     INV:I->O             64   0.238   0.469  rst_inv1_INV_0 (rst_inv)
+     FDE:CE                    0.213          row3_2_0
+    ----------------------------------------
+    Total                      2.118ns (1.269ns logic, 0.849ns route)
+                                       (59.9% logic, 40.1% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
+  Total number of paths / destination ports: 8 / 8
+-------------------------------------------------------------------------
+Offset:              3.259ns (Levels of Logic = 1)
+  Source:            bus_out_7 (FF)
+  Destination:       bus_out<7> (PAD)
+  Source Clock:      clk rising
+
+  Data Path: bus_out_7 to bus_out<7>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDS:C->Q              1   0.471   0.336  bus_out_7 (bus_out_7)
+     OBUF:I->O                 2.452          bus_out_7_OBUF (bus_out<7>)
+    ----------------------------------------
+    Total                      3.259ns (2.923ns logic, 0.336ns route)
+                                       (89.7% logic, 10.3% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 10.00 secs
+Total CPU time to Xst completion: 9.46 secs
+ 
+--> 
+
+Total memory usage is 4555468 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    2 (   0 filtered)
+Number of infos    :    2 (   0 filtered)
+

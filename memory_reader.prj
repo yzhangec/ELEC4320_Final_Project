@@ -1,0 +1,2 @@
+verilog work "ipcore_dir/img_storage.v"
+verilog work "memory_reader.v"

@@ -20,7 +20,6 @@
 //////////////////////////////////////////////////////////////////////////////////
 `define DEPTH 10000
 `define WIDTH 8
-`define DOUBLE_WIDTH 16
 
 module main_sobel(
 	input clk,
@@ -37,17 +36,14 @@ module main_sobel(
 	
 	wire [7:0] sobel_out;
 	
-	integer count = 0;
-	
-	
 	core_sobel sobel(	
 		row1[0],row1[1],row1[2], 
 		row2[0],row2[2],
 		row3[0],row3[1],row3[2],
 		sobel_out
-		);
+	);
 	
-	 always @(posedge clk) begin
+	always @(posedge clk) begin
 		if(rst) begin
 			read_en = 1'b1;				// Enables reading from FPGA	
 			write_en = 1'b1;			// Enables writing to FPGA 			
@@ -57,7 +53,6 @@ module main_sobel(
 			//writes the data at bus_in to RAM location pointed by WAddr (???)
 			{row1[0],row1[1],row1[2],row2[0],row2[1],row2[2],row3[0],row3[1],row3[2]} = mem_bus_out;
 			bus_out = sobel_out;
-			count = count + 1;
 		end 
-	 end
+	end
 endmodule

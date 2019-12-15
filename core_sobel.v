@@ -20,8 +20,9 @@
 //////////////////////////////////////////////////////////////////////////////////
 module core_sobel(
 	p0, p1, p2,
-	p3, p5, p6,
-	p7, p8, sobel_out
+	p3, 	p5, 
+	p6,	p7, p8, 
+	sobel_out
 	);
 
 	input  [7:0] p0,p1,p2,p3,p5,p6,p7,p8;			//8 bit pixels inputs

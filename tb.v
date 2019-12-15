@@ -19,17 +19,16 @@
 //
 //////////////////////////////////////////////////////////////////////////////////
 module tb(
-
-    );
+	clk,
+	rst,
+	bus_out
+	);
 	
-	wire [7:0] Bus_out,Mem_bus_in;
-	wire [71:0] Bus_in,Mem_bus_out; 
+	input [7:0] bus_out;
 	
-    reg clk, rst;
+    output reg clk, rst;
 	
 	integer result;
-    main_sobel sobel(.clk(clk), .rst(rst), .mem_bus_out(Mem_bus_out), .bus_out(Bus_out));
-    memory_reader img(.clk(clk), .rst(rst), .mem_bus_out(Mem_bus_out));
 	
 	initial begin
 		clk=1'b0;
@@ -43,7 +42,7 @@ module tb(
 		#5 clk=~clk;
 	 
 	always @ (posedge clk) begin
-		$fwrite (result,"%d\n",Bus_out);
+		$fwrite (result,"%d\n",bus_out);
 	end
 
 endmodule
