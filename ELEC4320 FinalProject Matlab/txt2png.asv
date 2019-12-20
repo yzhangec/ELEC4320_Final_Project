@@ -1,0 +1,12 @@
+[filename, pathname] = uigetfile('*.txt','Pick a text file');
+
+row = 100;
+col = 100;
+
+data = uint8(importdata(filename));
+data_length_ex = getLength(row,col);
+if (length(data) ~= data_length_ex)
+    data = [data zeros(1,data_length_ex - length(data))];
+    disp("Add zeros to original data");
+end
+
