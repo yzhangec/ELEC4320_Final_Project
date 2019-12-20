@@ -4,13 +4,13 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 1.00 secs
-Total CPU time to Xst completion: 0.44 secs
+Total CPU time to Xst completion: 0.40 secs
  
 --> Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 1.00 secs
-Total CPU time to Xst completion: 0.44 secs
+Total CPU time to Xst completion: 0.40 secs
  
 --> Reading design: tb.prj
 
@@ -118,8 +118,10 @@ Compiling verilog file "memory_reader.v" in library work
 Module <core_sobel> compiled
 Compiling verilog file "main_sobel.v" in library work
 Module <memory_reader> compiled
-Compiling verilog file "tb.v" in library work
+Compiling verilog file "core_median.v" in library work
 Module <main_sobel> compiled
+Compiling verilog file "tb.v" in library work
+Module <core_median> compiled
 Module <tb> compiled
 No errors in compilation
 Analysis of file <"tb.prj"> succeeded.
@@ -134,6 +136,8 @@ Analyzing hierarchy for module <memory_reader> in library <work>.
 
 Analyzing hierarchy for module <main_sobel> in library <work>.
 
+Analyzing hierarchy for module <core_median> in library <work>.
+
 Analyzing hierarchy for module <core_sobel> in library <work>.
 
 
@@ -141,14 +145,10 @@ Analyzing hierarchy for module <core_sobel> in library <work>.
 *                            HDL Analysis                               *
 =========================================================================
 Analyzing top module <tb>.
-WARNING:Xst:916 - "tb.v" line 40: Delay is ignored for synthesis.
-WARNING:Xst:916 - "tb.v" line 41: Delay is ignored for synthesis.
-WARNING:Xst:916 - "tb.v" line 46: Delay is ignored for synthesis.
-WARNING:Xst:2337 - "tb.v" line 49: File argument of function $fwrite is not constant. Skipping call to system function.
 Module <tb> is correct for synthesis.
  
 Analyzing module <memory_reader> in library <work>.
-WARNING:Xst:2211 - "ipcore_dir/img_storage.v" line 43: Instantiating black box module <img_storage>.
+WARNING:Xst:2211 - "ipcore_dir/img_storage.v" line 39: Instantiating black box module <img_storage>.
 Module <memory_reader> is correct for synthesis.
  
 Analyzing module <main_sobel> in library <work>.
@@ -157,17 +157,56 @@ Module <main_sobel> is correct for synthesis.
 Analyzing module <core_sobel> in library <work>.
 Module <core_sobel> is correct for synthesis.
  
+Analyzing module <core_median> in library <work>.
+Module <core_median> is correct for synthesis.
+ 
 
 =========================================================================
 *                           HDL Synthesis                               *
 =========================================================================
 
 Performing bidirectional port resolution...
-INFO:Xst:2679 - Register <i> in unit <memory_reader> has a constant value of 0 during circuit operation. The register is replaced by logic.
-INFO:Xst:2679 - Register <j> in unit <memory_reader> has a constant value of 0 during circuit operation. The register is replaced by logic.
-INFO:Xst:2679 - Register <mem_bus_out> in unit <memory_reader> has a constant value of 000000000000000000000000000000000000000000000000000000000000000000000000 during circuit operation. The register is replaced by logic.
-INFO:Xst:2679 - Register <read_en> in unit <main_sobel> has a constant value of 1 during circuit operation. The register is replaced by logic.
-INFO:Xst:2679 - Register <write_en> in unit <main_sobel> has a constant value of 1 during circuit operation. The register is replaced by logic.
+
+Synthesizing Unit <core_median>.
+    Related source file is "core_median.v".
+WARNING:Xst:646 - Signal <val> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <temp> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+    Found 8-bit register for signal <median_out>.
+    Found 8-bit comparator greater for signal <median_out$cmp_gt0000> created at line 48.
+    Found 8-bit comparator greater for signal <mux0000$cmp_gt0000> created at line 48.
+    Found 8-bit comparator greater for signal <mux0001$cmp_gt0000> created at line 48.
+    Found 8-bit comparator greater for signal <mux0002$cmp_gt0000> created at line 48.
+    Found 8-bit comparator greater for signal <mux0003$cmp_gt0000> created at line 48.
+    Found 8-bit comparator greater for signal <mux0004$cmp_gt0000> created at line 48.
+    Found 8-bit comparator greater for signal <mux0005$cmp_gt0000> created at line 48.
+    Found 8-bit comparator greater for signal <mux0006$cmp_gt0000> created at line 48.
+    Found 8-bit comparator greater for signal <mux0009$cmp_gt0000> created at line 48.
+    Found 8-bit comparator greater for signal <mux0011$cmp_gt0000> created at line 48.
+    Found 8-bit comparator greater for signal <mux0013$cmp_gt0000> created at line 48.
+    Found 8-bit comparator greater for signal <mux0015$cmp_gt0000> created at line 48.
+    Found 8-bit comparator greater for signal <mux0017$cmp_gt0000> created at line 48.
+    Found 8-bit comparator greater for signal <mux0019$cmp_gt0000> created at line 48.
+    Found 8-bit comparator greater for signal <mux0020$cmp_gt0000> created at line 48.
+    Found 8-bit comparator greater for signal <mux0023$cmp_gt0000> created at line 48.
+    Found 8-bit comparator greater for signal <mux0025$cmp_gt0000> created at line 48.
+    Found 8-bit comparator greater for signal <mux0027$cmp_gt0000> created at line 48.
+    Found 8-bit comparator greater for signal <mux0029$cmp_gt0000> created at line 48.
+    Found 8-bit comparator greater for signal <mux0031$cmp_gt0000> created at line 48.
+    Found 8-bit comparator greater for signal <mux0032$cmp_gt0000> created at line 48.
+    Found 8-bit comparator greater for signal <mux0035$cmp_gt0000> created at line 48.
+    Found 8-bit comparator greater for signal <mux0037$cmp_gt0000> created at line 48.
+    Found 8-bit comparator greater for signal <mux0039$cmp_gt0000> created at line 48.
+    Found 8-bit comparator greater for signal <mux0041$cmp_gt0000> created at line 48.
+    Found 8-bit comparator greater for signal <mux0042$cmp_gt0000> created at line 48.
+    Found 8-bit comparator greater for signal <mux0045$cmp_gt0000> created at line 48.
+    Found 8-bit comparator greater for signal <mux0047$cmp_gt0000> created at line 48.
+    Found 8-bit comparator greater for signal <mux0049$cmp_gt0000> created at line 48.
+    Found 8-bit comparator greater for signal <mux0050$cmp_gt0000> created at line 48.
+    Summary:
+	inferred   8 D-type flip-flop(s).
+	inferred  30 Comparator(s).
+Unit <core_median> synthesized.
+
 
 Synthesizing Unit <core_sobel>.
     Related source file is "core_sobel.v".
@@ -191,67 +230,116 @@ Unit <core_sobel> synthesized.
 
 Synthesizing Unit <memory_reader>.
     Related source file is "memory_reader.v".
-    Found 7-bit register for signal <col>.
-    Found 7-bit adder for signal <col$addsub0000> created at line 75.
-    Found 8-bit comparator greater for signal <col$cmp_gt0000> created at line 68.
-    Found 14-bit comparator greater for signal <col$cmp_gt0001> created at line 73.
-    Found 7-bit register for signal <col2>.
-    Found 7-bit adder for signal <col2$addsub0000> created at line 102.
-    Found 14-bit up counter for signal <raddr>.
-    Found 1-bit register for signal <read_finished>.
-    Found 7-bit up counter for signal <row>.
-    Found 8-bit comparator lessequal for signal <row$cmp_le0000> created at line 68.
-    Found 7-bit register for signal <row2>.
-    Found 7-bit adder for signal <row2$addsub0000> created at line 93.
+    Found finite state machine <FSM_0> for signal <i>.
+    -----------------------------------------------------------------------
+    | States             | 9                                              |
+    | Transitions        | 34                                             |
+    | Inputs             | 2                                              |
+    | Outputs            | 18                                             |
+    | Clock              | clk                       (rising_edge)        |
+    | Clock enable       | i$not0000                 (positive)           |
+    | Reset              | rst                       (positive)           |
+    | Reset type         | synchronous                                    |
+    | Reset State        | 00000                                          |
+    | Encoding           | automatic                                      |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 1-bit register for signal <mem_write_en>.
+    Found 72-bit register for signal <mem_bus_out>.
+    Found 15-bit up counter for signal <col>.
+    Found 72-bit register for signal <mem>.
+    Found 1-bit register for signal <mem_read_finished>.
+    Found 15-bit adder for signal <old_col_1$add0000> created at line 179.
+    Found 14-bit register for signal <raddr>.
+    Found 16-bit subtractor for signal <raddr$addsub0000> created at line 74.
+    Found 14-bit adder for signal <raddr$addsub0001> created at line 74.
+    Found 14-bit subtractor for signal <raddr$addsub0002> created at line 74.
+    Found 14-bit subtractor for signal <raddr$addsub0003> created at line 89.
+    Found 14-bit subtractor for signal <raddr$addsub0004> created at line 104.
+    Found 23-bit adder carry out for signal <raddr$addsub0006> created at line 104.
+    Found 22-bit adder carry out for signal <raddr$addsub0007> created at line 89.
+    Found 15-bit adder carry out for signal <raddr$addsub0008> created at line 104.
+    Found 16x8-bit multiplier for signal <raddr$mult0000> created at line 74.
+    Found 16x7-bit multiplier for signal <raddr$mult0009> created at line 104.
+    Found 15x7-bit multiplier for signal <raddr$mult0010> created at line 89.
+    Found 14-bit adder carry in for signal <raddr$share0000>.
+    Found 15-bit up counter for signal <read_counter>.
+    Found 15-bit up counter for signal <row>.
+    Found 15-bit register for signal <write_counter>.
+    Found 15-bit adder for signal <write_counter$addsub0000> created at line 194.
     Summary:
-	inferred   2 Counter(s).
-	inferred  22 D-type flip-flop(s).
-	inferred   3 Adder/Subtractor(s).
-	inferred   3 Comparator(s).
+	inferred   1 Finite State Machine(s).
+	inferred   3 Counter(s).
+	inferred 175 D-type flip-flop(s).
+	inferred  11 Adder/Subtractor(s).
+	inferred   3 Multiplier(s).
 Unit <memory_reader> synthesized.
 
 
 Synthesizing Unit <main_sobel>.
     Related source file is "main_sobel.v".
-WARNING:Xst:646 - Signal <row2<1>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
-WARNING:Xst:646 - Signal <read_en> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <sobel_out> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:653 - Signal <row3> is used but never assigned. This sourceless signal will be automatically connected to value 00000000.
+WARNING:Xst:653 - Signal <row2<2>> is used but never assigned. This sourceless signal will be automatically connected to value 00000000.
+WARNING:Xst:1780 - Signal <row2<1>> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:653 - Signal <row2<0>> is used but never assigned. This sourceless signal will be automatically connected to value 00000000.
+WARNING:Xst:653 - Signal <row1> is used but never assigned. This sourceless signal will be automatically connected to value 00000000.
     Found 8-bit register for signal <bus_out>.
-    Found 24-bit register for signal <row1>.
-    Found 8-bit register for signal <row2<2>>.
-    Found 8-bit register for signal <row2<0>>.
-    Found 24-bit register for signal <row3>.
+    Found 8-bit register for signal <med0>.
+    Found 8-bit register for signal <med1>.
+    Found 8-bit register for signal <med2>.
+    Found 8-bit register for signal <med3>.
+    Found 8-bit register for signal <med4>.
+    Found 8-bit register for signal <med5>.
+    Found 8-bit register for signal <med6>.
+    Found 8-bit register for signal <med7>.
+    Found 8-bit register for signal <med8>.
     Summary:
-	inferred  72 D-type flip-flop(s).
+	inferred  80 D-type flip-flop(s).
 Unit <main_sobel> synthesized.
 
 
 Synthesizing Unit <tb>.
     Related source file is "tb.v".
+WARNING:Xst:1305 - Output <clk> is never assigned. Tied to value 0.
 WARNING:Xst:1305 - Output <rst> is never assigned. Tied to value 0.
-WARNING:Xst:1872 - Variable <result> is used but never assigned.
+WARNING:Xst:647 - Input <sobel> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <median> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:646 - Signal <Mem_write_en> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:646 - Signal <Bus_out> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 Unit <tb> synthesized.
 
+INFO:Xst:1767 - HDL ADVISOR - Resource sharing has identified that some arithmetic operations in this design can share the same physical resources for reduced device utilization. For improved clock frequency you may try to disable resource sharing.
 
 =========================================================================
 HDL Synthesis Report
 
 Macro Statistics
-# Adders/Subtractors                                   : 16
+# Multipliers                                          : 3
+ 15x7-bit multiplier                                   : 1
+ 16x7-bit multiplier                                   : 1
+ 16x8-bit multiplier                                   : 1
+# Adders/Subtractors                                   : 24
  10-bit subtractor                                     : 6
  11-bit adder                                          : 7
- 7-bit adder                                           : 3
-# Counters                                             : 2
- 14-bit up counter                                     : 1
- 7-bit up counter                                      : 1
-# Registers                                            : 13
- 1-bit register                                        : 1
- 7-bit register                                        : 3
- 8-bit register                                        : 9
-# Comparators                                          : 3
- 14-bit comparator greater                             : 1
- 8-bit comparator greater                              : 1
- 8-bit comparator lessequal                            : 1
+ 14-bit adder                                          : 1
+ 14-bit adder carry in                                 : 1
+ 14-bit subtractor                                     : 3
+ 15-bit adder                                          : 2
+ 15-bit adder carry out                                : 1
+ 16-bit subtractor                                     : 1
+ 22-bit adder carry out                                : 1
+ 23-bit adder carry out                                : 1
+# Counters                                             : 3
+ 15-bit up counter                                     : 3
+# Registers                                            : 25
+ 1-bit register                                        : 2
+ 14-bit register                                       : 1
+ 15-bit register                                       : 1
+ 72-bit register                                       : 1
+ 8-bit register                                        : 20
+# Comparators                                          : 30
+ 8-bit comparator greater                              : 30
 
 =========================================================================
 
@@ -259,123 +347,355 @@ Macro Statistics
 *                       Advanced HDL Synthesis                          *
 =========================================================================
 
+Analyzing FSM <FSM_0> for best encoding.
+Optimizing FSM <memory_reader_ins/i/FSM> on signal <i[1:9]> with one-hot encoding.
+--------------------
+ State | Encoding
+--------------------
+ 00000 | 000000001
+ 00001 | 000000010
+ 00010 | 000000100
+ 00011 | 000001000
+ 00100 | 000010000
+ 00101 | 000100000
+ 00110 | 001000000
+ 00111 | 010000000
+ 01000 | 100000000
+--------------------
 Reading core <ipcore_dir/img_storage.ngc>.
 Loading core <img_storage> for timing and area information for instance <img>.
 WARNING:Xst:1290 - Hierarchical block <main_sobel_ins> is unconnected in block <tb>.
    It will be removed from the design.
-WARNING:Xst:1426 - The value init of the FF/Latch read_finished hinder the constant cleaning in the block memory_reader_ins.
+WARNING:Xst:1290 - Hierarchical block <core_median_ins> is unconnected in block <tb>.
+   It will be removed from the design.
+WARNING:Xst:1426 - The value init of the FF/Latch mem_read_finished hinder the constant cleaning in the block memory_reader_ins.
    You should achieve better results by setting this init to 1.
+WARNING:Xst:1710 - FF/Latch <raddr_13> (without init value) has a constant value of 0 in block <memory_reader_ins>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <raddr_12> (without init value) has a constant value of 0 in block <memory_reader_ins>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <raddr_11> (without init value) has a constant value of 0 in block <memory_reader_ins>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <raddr_10> (without init value) has a constant value of 0 in block <memory_reader_ins>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <raddr_9> (without init value) has a constant value of 0 in block <memory_reader_ins>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <raddr_8> (without init value) has a constant value of 0 in block <memory_reader_ins>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <raddr_7> (without init value) has a constant value of 0 in block <memory_reader_ins>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <raddr_6> (without init value) has a constant value of 0 in block <memory_reader_ins>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <raddr_5> (without init value) has a constant value of 0 in block <memory_reader_ins>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <raddr_4> (without init value) has a constant value of 0 in block <memory_reader_ins>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <raddr_3> (without init value) has a constant value of 0 in block <memory_reader_ins>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <raddr_2> (without init value) has a constant value of 0 in block <memory_reader_ins>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <raddr_1> (without init value) has a constant value of 0 in block <memory_reader_ins>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <raddr_0> (without init value) has a constant value of 0 in block <memory_reader_ins>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_read_finished> (without init value) has a constant value of 0 in block <memory_reader_ins>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <FFd9> (without init value) has a constant value of 1 in block <FSM>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <FFd8> (without init value) has a constant value of 0 in block <FSM>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <FFd7> (without init value) has a constant value of 0 in block <FSM>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <FFd6> (without init value) has a constant value of 0 in block <FSM>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <FFd5> (without init value) has a constant value of 0 in block <FSM>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <FFd4> (without init value) has a constant value of 0 in block <FSM>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <FFd2> (without init value) has a constant value of 0 in block <FSM>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <FFd1> (without init value) has a constant value of 0 in block <FSM>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <FFd3> (without init value) has a constant value of 0 in block <FSM>. This FF/Latch will be trimmed during the optimization process.
 
 =========================================================================
 Advanced HDL Synthesis Report
 
 Macro Statistics
-# Adders/Subtractors                                   : 14
+# FSMs                                                 : 1
+# Multipliers                                          : 3
+ 15x7-bit multiplier                                   : 1
+ 16x7-bit multiplier                                   : 1
+ 16x8-bit multiplier                                   : 1
+# Adders/Subtractors                                   : 24
  10-bit subtractor                                     : 6
  11-bit adder                                          : 7
- 7-bit adder                                           : 1
-# Counters                                             : 2
- 14-bit up counter                                     : 1
- 7-bit up counter                                      : 1
-# Registers                                            : 80
- Flip-Flops                                            : 80
-# Comparators                                          : 3
- 14-bit comparator greater                             : 1
- 8-bit comparator greater                              : 1
- 8-bit comparator lessequal                            : 1
+ 14-bit adder                                          : 1
+ 14-bit adder carry in                                 : 1
+ 14-bit subtractor                                     : 3
+ 15-bit adder                                          : 2
+ 15-bit adder carry out                                : 1
+ 16-bit subtractor                                     : 1
+ 22-bit adder carry out                                : 1
+ 23-bit adder carry out                                : 1
+# Counters                                             : 3
+ 15-bit up counter                                     : 3
+# Registers                                            : 263
+ Flip-Flops                                            : 263
+# Comparators                                          : 30
+ 8-bit comparator greater                              : 30
 
 =========================================================================
 
 =========================================================================
 *                         Low Level Synthesis                           *
 =========================================================================
-WARNING:Xst:1426 - The value init of the FF/Latch read_finished hinder the constant cleaning in the block memory_reader.
+WARNING:Xst:1710 - FF/Latch <median_out_0> (without init value) has a constant value of 0 in block <core_median>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <median_out_1> (without init value) has a constant value of 0 in block <core_median>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <median_out_2> (without init value) has a constant value of 0 in block <core_median>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <median_out_3> (without init value) has a constant value of 0 in block <core_median>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <median_out_4> (without init value) has a constant value of 0 in block <core_median>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <median_out_5> (without init value) has a constant value of 0 in block <core_median>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <median_out_6> (without init value) has a constant value of 0 in block <core_median>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <median_out_7> (without init value) has a constant value of 0 in block <core_median>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1426 - The value init of the FF/Latch mem_read_finished hinder the constant cleaning in the block memory_reader.
    You should achieve better results by setting this init to 1.
-WARNING:Xst:2170 - Unit tb : the following signal(s) form a combinatorial loop: clk.
+WARNING:Xst:1710 - FF/Latch <mem_2_6> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_2_7> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_3_0> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_3_1> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_3_2> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_3_3> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_3_4> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_3_5> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_3_6> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_3_7> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_4_0> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_4_1> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_4_2> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_4_3> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_4_4> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_4_5> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_4_6> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_4_7> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_5_0> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_5_1> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_5_2> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_0_0> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_0_1> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_0_2> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_0_3> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_0_4> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_0_5> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_0_6> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_0_7> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_1_0> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_1_1> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_1_2> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_1_3> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_1_4> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_1_5> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_1_6> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_1_7> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_2_0> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_2_1> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_2_2> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_2_3> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_2_4> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_2_5> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_8_1> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_8_2> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_8_3> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_8_4> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_8_5> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_8_6> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_8_7> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <write_counter_0> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <write_counter_1> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <write_counter_2> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <write_counter_3> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <write_counter_4> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <write_counter_5> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <write_counter_6> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <write_counter_7> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <write_counter_8> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <write_counter_9> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <write_counter_10> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <write_counter_11> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <write_counter_12> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <write_counter_13> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <write_counter_14> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_5_3> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_5_4> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_5_5> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_5_6> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_5_7> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_6_0> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_6_1> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_6_2> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_6_3> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_6_4> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_6_5> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_6_6> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_6_7> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_7_0> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_7_1> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_7_2> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_7_3> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_7_4> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_7_5> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_7_6> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_7_7> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_8_0> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_bus_out_6> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_bus_out_7> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_bus_out_8> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_bus_out_9> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_bus_out_10> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_bus_out_11> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_bus_out_12> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_bus_out_13> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_bus_out_14> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_bus_out_15> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_bus_out_16> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_bus_out_17> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_bus_out_18> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_bus_out_19> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_bus_out_20> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_bus_out_21> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_bus_out_22> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_bus_out_23> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_bus_out_24> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_bus_out_25> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_bus_out_26> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_bus_out_27> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_read_finished> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_write_en> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <raddr_0> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <raddr_1> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <raddr_2> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <raddr_3> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <raddr_4> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <raddr_5> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <raddr_6> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <raddr_7> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <raddr_8> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <raddr_9> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <raddr_10> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <raddr_11> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <raddr_12> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <raddr_13> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_bus_out_0> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_bus_out_1> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_bus_out_2> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_bus_out_3> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_bus_out_4> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_bus_out_5> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_bus_out_50> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_bus_out_51> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_bus_out_52> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_bus_out_53> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_bus_out_54> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_bus_out_55> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_bus_out_56> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_bus_out_57> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_bus_out_58> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_bus_out_59> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_bus_out_60> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_bus_out_61> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_bus_out_62> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_bus_out_63> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_bus_out_64> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_bus_out_65> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_bus_out_66> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_bus_out_67> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_bus_out_68> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_bus_out_69> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_bus_out_70> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_bus_out_71> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_bus_out_28> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_bus_out_29> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_bus_out_30> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_bus_out_31> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_bus_out_32> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_bus_out_33> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_bus_out_34> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_bus_out_35> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_bus_out_36> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_bus_out_37> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_bus_out_38> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_bus_out_39> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_bus_out_40> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_bus_out_41> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_bus_out_42> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_bus_out_43> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_bus_out_44> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_bus_out_45> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_bus_out_46> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_bus_out_47> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_bus_out_48> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <mem_bus_out_49> (without init value) has a constant value of 0 in block <memory_reader>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <med3_3> (without init value) has a constant value of 0 in block <main_sobel>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <med3_2> (without init value) has a constant value of 0 in block <main_sobel>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <med3_1> (without init value) has a constant value of 0 in block <main_sobel>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <med3_0> (without init value) has a constant value of 0 in block <main_sobel>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <med4_7> (without init value) has a constant value of 0 in block <main_sobel>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <med4_6> (without init value) has a constant value of 0 in block <main_sobel>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <med4_5> (without init value) has a constant value of 0 in block <main_sobel>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <med4_4> (without init value) has a constant value of 0 in block <main_sobel>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <med4_3> (without init value) has a constant value of 0 in block <main_sobel>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <med4_2> (without init value) has a constant value of 0 in block <main_sobel>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <med4_1> (without init value) has a constant value of 0 in block <main_sobel>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <med4_0> (without init value) has a constant value of 0 in block <main_sobel>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <med2_7> (without init value) has a constant value of 0 in block <main_sobel>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <med2_6> (without init value) has a constant value of 0 in block <main_sobel>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <med2_5> (without init value) has a constant value of 0 in block <main_sobel>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <med2_4> (without init value) has a constant value of 0 in block <main_sobel>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <med2_3> (without init value) has a constant value of 0 in block <main_sobel>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <med2_2> (without init value) has a constant value of 0 in block <main_sobel>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <med2_1> (without init value) has a constant value of 0 in block <main_sobel>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <med2_0> (without init value) has a constant value of 0 in block <main_sobel>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <med0_7> (without init value) has a constant value of 0 in block <main_sobel>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <med0_6> (without init value) has a constant value of 0 in block <main_sobel>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <med0_5> (without init value) has a constant value of 0 in block <main_sobel>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <med0_4> (without init value) has a constant value of 0 in block <main_sobel>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <med0_3> (without init value) has a constant value of 0 in block <main_sobel>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <med0_2> (without init value) has a constant value of 0 in block <main_sobel>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <med0_1> (without init value) has a constant value of 0 in block <main_sobel>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <med0_0> (without init value) has a constant value of 0 in block <main_sobel>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <med1_7> (without init value) has a constant value of 0 in block <main_sobel>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <med1_6> (without init value) has a constant value of 0 in block <main_sobel>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <med1_5> (without init value) has a constant value of 0 in block <main_sobel>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <med1_4> (without init value) has a constant value of 0 in block <main_sobel>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <med1_3> (without init value) has a constant value of 0 in block <main_sobel>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <med1_2> (without init value) has a constant value of 0 in block <main_sobel>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <med1_1> (without init value) has a constant value of 0 in block <main_sobel>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <med1_0> (without init value) has a constant value of 0 in block <main_sobel>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <med3_7> (without init value) has a constant value of 0 in block <main_sobel>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <med3_6> (without init value) has a constant value of 0 in block <main_sobel>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <med3_5> (without init value) has a constant value of 0 in block <main_sobel>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <med3_4> (without init value) has a constant value of 0 in block <main_sobel>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <med5_3> (without init value) has a constant value of 0 in block <main_sobel>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <med5_2> (without init value) has a constant value of 0 in block <main_sobel>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <med5_1> (without init value) has a constant value of 0 in block <main_sobel>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <med5_0> (without init value) has a constant value of 0 in block <main_sobel>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <bus_out_7> (without init value) has a constant value of 1 in block <main_sobel>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <bus_out_6> (without init value) has a constant value of 1 in block <main_sobel>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <bus_out_5> (without init value) has a constant value of 1 in block <main_sobel>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <bus_out_4> (without init value) has a constant value of 1 in block <main_sobel>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <bus_out_3> (without init value) has a constant value of 1 in block <main_sobel>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <bus_out_2> (without init value) has a constant value of 1 in block <main_sobel>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <bus_out_1> (without init value) has a constant value of 1 in block <main_sobel>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <bus_out_0> (without init value) has a constant value of 1 in block <main_sobel>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <med8_7> (without init value) has a constant value of 0 in block <main_sobel>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <med8_6> (without init value) has a constant value of 0 in block <main_sobel>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <med8_5> (without init value) has a constant value of 0 in block <main_sobel>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <med8_4> (without init value) has a constant value of 0 in block <main_sobel>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <med8_3> (without init value) has a constant value of 0 in block <main_sobel>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <med8_2> (without init value) has a constant value of 0 in block <main_sobel>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <med8_1> (without init value) has a constant value of 0 in block <main_sobel>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <med8_0> (without init value) has a constant value of 0 in block <main_sobel>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <med6_7> (without init value) has a constant value of 0 in block <main_sobel>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <med6_6> (without init value) has a constant value of 0 in block <main_sobel>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <med6_5> (without init value) has a constant value of 0 in block <main_sobel>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <med6_4> (without init value) has a constant value of 0 in block <main_sobel>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <med6_3> (without init value) has a constant value of 0 in block <main_sobel>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <med6_2> (without init value) has a constant value of 0 in block <main_sobel>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <med6_1> (without init value) has a constant value of 0 in block <main_sobel>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <med6_0> (without init value) has a constant value of 0 in block <main_sobel>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <med7_7> (without init value) has a constant value of 0 in block <main_sobel>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <med7_6> (without init value) has a constant value of 0 in block <main_sobel>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <med7_5> (without init value) has a constant value of 0 in block <main_sobel>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <med7_4> (without init value) has a constant value of 0 in block <main_sobel>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <med7_3> (without init value) has a constant value of 0 in block <main_sobel>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <med7_2> (without init value) has a constant value of 0 in block <main_sobel>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <med7_1> (without init value) has a constant value of 0 in block <main_sobel>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <med7_0> (without init value) has a constant value of 0 in block <main_sobel>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <med5_7> (without init value) has a constant value of 0 in block <main_sobel>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <med5_6> (without init value) has a constant value of 0 in block <main_sobel>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <med5_5> (without init value) has a constant value of 0 in block <main_sobel>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <med5_4> (without init value) has a constant value of 0 in block <main_sobel>. This FF/Latch will be trimmed during the optimization process.
 
 Optimizing unit <tb> ...
 
-Optimizing unit <core_sobel> ...
-
-Optimizing unit <memory_reader> ...
-
-Optimizing unit <main_sobel> ...
-WARNING:Xst:2677 - Node <main_sobel_ins/bus_out_7> of sequential type is unconnected in block <tb>.
-WARNING:Xst:2677 - Node <main_sobel_ins/bus_out_6> of sequential type is unconnected in block <tb>.
-WARNING:Xst:2677 - Node <main_sobel_ins/bus_out_5> of sequential type is unconnected in block <tb>.
-WARNING:Xst:2677 - Node <main_sobel_ins/bus_out_4> of sequential type is unconnected in block <tb>.
-WARNING:Xst:2677 - Node <main_sobel_ins/bus_out_3> of sequential type is unconnected in block <tb>.
-WARNING:Xst:2677 - Node <main_sobel_ins/bus_out_2> of sequential type is unconnected in block <tb>.
-WARNING:Xst:2677 - Node <main_sobel_ins/bus_out_1> of sequential type is unconnected in block <tb>.
-WARNING:Xst:2677 - Node <main_sobel_ins/bus_out_0> of sequential type is unconnected in block <tb>.
-WARNING:Xst:2677 - Node <main_sobel_ins/row1_0_7> of sequential type is unconnected in block <tb>.
-WARNING:Xst:2677 - Node <main_sobel_ins/row1_0_6> of sequential type is unconnected in block <tb>.
-WARNING:Xst:2677 - Node <main_sobel_ins/row1_0_5> of sequential type is unconnected in block <tb>.
-WARNING:Xst:2677 - Node <main_sobel_ins/row1_0_4> of sequential type is unconnected in block <tb>.
-WARNING:Xst:2677 - Node <main_sobel_ins/row1_0_3> of sequential type is unconnected in block <tb>.
-WARNING:Xst:2677 - Node <main_sobel_ins/row1_0_2> of sequential type is unconnected in block <tb>.
-WARNING:Xst:2677 - Node <main_sobel_ins/row1_0_1> of sequential type is unconnected in block <tb>.
-WARNING:Xst:2677 - Node <main_sobel_ins/row1_0_0> of sequential type is unconnected in block <tb>.
-WARNING:Xst:2677 - Node <main_sobel_ins/row1_1_7> of sequential type is unconnected in block <tb>.
-WARNING:Xst:2677 - Node <main_sobel_ins/row1_1_6> of sequential type is unconnected in block <tb>.
-WARNING:Xst:2677 - Node <main_sobel_ins/row1_1_5> of sequential type is unconnected in block <tb>.
-WARNING:Xst:2677 - Node <main_sobel_ins/row1_1_4> of sequential type is unconnected in block <tb>.
-WARNING:Xst:2677 - Node <main_sobel_ins/row1_1_3> of sequential type is unconnected in block <tb>.
-WARNING:Xst:2677 - Node <main_sobel_ins/row1_1_2> of sequential type is unconnected in block <tb>.
-WARNING:Xst:2677 - Node <main_sobel_ins/row1_1_1> of sequential type is unconnected in block <tb>.
-WARNING:Xst:2677 - Node <main_sobel_ins/row1_1_0> of sequential type is unconnected in block <tb>.
-WARNING:Xst:2677 - Node <main_sobel_ins/row2_0_7> of sequential type is unconnected in block <tb>.
-WARNING:Xst:2677 - Node <main_sobel_ins/row2_0_6> of sequential type is unconnected in block <tb>.
-WARNING:Xst:2677 - Node <main_sobel_ins/row2_0_5> of sequential type is unconnected in block <tb>.
-WARNING:Xst:2677 - Node <main_sobel_ins/row2_0_4> of sequential type is unconnected in block <tb>.
-WARNING:Xst:2677 - Node <main_sobel_ins/row2_0_3> of sequential type is unconnected in block <tb>.
-WARNING:Xst:2677 - Node <main_sobel_ins/row2_0_2> of sequential type is unconnected in block <tb>.
-WARNING:Xst:2677 - Node <main_sobel_ins/row2_0_1> of sequential type is unconnected in block <tb>.
-WARNING:Xst:2677 - Node <main_sobel_ins/row2_0_0> of sequential type is unconnected in block <tb>.
-WARNING:Xst:2677 - Node <main_sobel_ins/row2_2_7> of sequential type is unconnected in block <tb>.
-WARNING:Xst:2677 - Node <main_sobel_ins/row2_2_6> of sequential type is unconnected in block <tb>.
-WARNING:Xst:2677 - Node <main_sobel_ins/row2_2_5> of sequential type is unconnected in block <tb>.
-WARNING:Xst:2677 - Node <main_sobel_ins/row2_2_4> of sequential type is unconnected in block <tb>.
-WARNING:Xst:2677 - Node <main_sobel_ins/row2_2_3> of sequential type is unconnected in block <tb>.
-WARNING:Xst:2677 - Node <main_sobel_ins/row2_2_2> of sequential type is unconnected in block <tb>.
-WARNING:Xst:2677 - Node <main_sobel_ins/row2_2_1> of sequential type is unconnected in block <tb>.
-WARNING:Xst:2677 - Node <main_sobel_ins/row2_2_0> of sequential type is unconnected in block <tb>.
-WARNING:Xst:2677 - Node <main_sobel_ins/row1_2_7> of sequential type is unconnected in block <tb>.
-WARNING:Xst:2677 - Node <main_sobel_ins/row1_2_6> of sequential type is unconnected in block <tb>.
-WARNING:Xst:2677 - Node <main_sobel_ins/row1_2_5> of sequential type is unconnected in block <tb>.
-WARNING:Xst:2677 - Node <main_sobel_ins/row1_2_4> of sequential type is unconnected in block <tb>.
-WARNING:Xst:2677 - Node <main_sobel_ins/row1_2_3> of sequential type is unconnected in block <tb>.
-WARNING:Xst:2677 - Node <main_sobel_ins/row1_2_2> of sequential type is unconnected in block <tb>.
-WARNING:Xst:2677 - Node <main_sobel_ins/row1_2_1> of sequential type is unconnected in block <tb>.
-WARNING:Xst:2677 - Node <main_sobel_ins/row1_2_0> of sequential type is unconnected in block <tb>.
-WARNING:Xst:2677 - Node <main_sobel_ins/row3_0_7> of sequential type is unconnected in block <tb>.
-WARNING:Xst:2677 - Node <main_sobel_ins/row3_0_6> of sequential type is unconnected in block <tb>.
-WARNING:Xst:2677 - Node <main_sobel_ins/row3_0_5> of sequential type is unconnected in block <tb>.
-WARNING:Xst:2677 - Node <main_sobel_ins/row3_0_4> of sequential type is unconnected in block <tb>.
-WARNING:Xst:2677 - Node <main_sobel_ins/row3_0_3> of sequential type is unconnected in block <tb>.
-WARNING:Xst:2677 - Node <main_sobel_ins/row3_0_2> of sequential type is unconnected in block <tb>.
-WARNING:Xst:2677 - Node <main_sobel_ins/row3_0_1> of sequential type is unconnected in block <tb>.
-WARNING:Xst:2677 - Node <main_sobel_ins/row3_0_0> of sequential type is unconnected in block <tb>.
-WARNING:Xst:2677 - Node <main_sobel_ins/row3_1_7> of sequential type is unconnected in block <tb>.
-WARNING:Xst:2677 - Node <main_sobel_ins/row3_1_6> of sequential type is unconnected in block <tb>.
-WARNING:Xst:2677 - Node <main_sobel_ins/row3_1_5> of sequential type is unconnected in block <tb>.
-WARNING:Xst:2677 - Node <main_sobel_ins/row3_1_4> of sequential type is unconnected in block <tb>.
-WARNING:Xst:2677 - Node <main_sobel_ins/row3_1_3> of sequential type is unconnected in block <tb>.
-WARNING:Xst:2677 - Node <main_sobel_ins/row3_1_2> of sequential type is unconnected in block <tb>.
-WARNING:Xst:2677 - Node <main_sobel_ins/row3_1_1> of sequential type is unconnected in block <tb>.
-WARNING:Xst:2677 - Node <main_sobel_ins/row3_1_0> of sequential type is unconnected in block <tb>.
-WARNING:Xst:2677 - Node <main_sobel_ins/row3_2_7> of sequential type is unconnected in block <tb>.
-WARNING:Xst:2677 - Node <main_sobel_ins/row3_2_6> of sequential type is unconnected in block <tb>.
-WARNING:Xst:2677 - Node <main_sobel_ins/row3_2_5> of sequential type is unconnected in block <tb>.
-WARNING:Xst:2677 - Node <main_sobel_ins/row3_2_4> of sequential type is unconnected in block <tb>.
-WARNING:Xst:2677 - Node <main_sobel_ins/row3_2_3> of sequential type is unconnected in block <tb>.
-WARNING:Xst:2677 - Node <main_sobel_ins/row3_2_2> of sequential type is unconnected in block <tb>.
-WARNING:Xst:2677 - Node <main_sobel_ins/row3_2_1> of sequential type is unconnected in block <tb>.
-WARNING:Xst:2677 - Node <main_sobel_ins/row3_2_0> of sequential type is unconnected in block <tb>.
-
 Mapping all equations...
-WARNING:Xst:2016 - Found a loop when searching source clock on port 'clk:O'
-Last warning will be issued only once.
 Building and optimizing final netlist ...
 Found area constraint ratio of 100 (+ 5) on block tb, actual ratio is 0.
 
@@ -384,10 +704,7 @@ Final Macro Processing ...
 =========================================================================
 Final Register Report
 
-Macro Statistics
-# Registers                                            : 29
- Flip-Flops                                            : 29
-
+Found no macro
 =========================================================================
 
 =========================================================================
@@ -412,25 +729,17 @@ Optimization Goal                  : Speed
 Keep Hierarchy                     : No
 
 Design Statistics
-# IOs                              : 2
+# IOs                              : 4
 
 Cell Usage :
-# BELS                             : 114
+# BELS                             : 13
 #      GND                         : 2
-#      INV                         : 3
-#      LUT1                        : 13
-#      LUT2                        : 2
-#      LUT3                        : 7
-#      LUT4                        : 5
-#      LUT5                        : 12
-#      LUT6                        : 41
-#      MUXCY                       : 13
-#      VCC                         : 2
-#      XORCY                       : 14
-# FlipFlops/Latches                : 32
-#      FD                          : 1
+#      INV                         : 1
+#      LUT3                        : 1
+#      LUT5                        : 8
+#      VCC                         : 1
+# FlipFlops/Latches                : 3
 #      FDE                         : 3
-#      FDR                         : 28
 # RAMS                             : 5
 #      RAMB18                      : 5
 # IO Buffers                       : 2
@@ -444,19 +753,19 @@ Selected Device : 5vlx110tff1136-1
 
 
 Slice Logic Utilization: 
- Number of Slice Registers:              32  out of  69120     0%  
- Number of Slice LUTs:                   83  out of  69120     0%  
-    Number used as Logic:                83  out of  69120     0%  
+ Number of Slice Registers:               3  out of  69120     0%  
+ Number of Slice LUTs:                   10  out of  69120     0%  
+    Number used as Logic:                10  out of  69120     0%  
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:     86
-   Number with an unused Flip Flop:      54  out of     86    62%  
-   Number with an unused LUT:             3  out of     86     3%  
-   Number of fully used LUT-FF pairs:    29  out of     86    33%  
-   Number of unique control sets:         4
+ Number of LUT Flip Flop pairs used:     13
+   Number with an unused Flip Flop:      10  out of     13    76%  
+   Number with an unused LUT:             3  out of     13    23%  
+   Number of fully used LUT-FF pairs:     0  out of     13     0%  
+   Number of unique control sets:         1
 
 IO Utilization: 
- Number of IOs:                           2
+ Number of IOs:                           4
  Number of bonded IOBs:                   2  out of    640     0%  
 
 Specific Feature Utilization:
@@ -484,12 +793,9 @@ Clock Information:
 -----------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------+-------+
 Clock Signal                       | Clock buffer(FF name)                                                                                                                         | Load  |
 -----------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------+-------+
-clk_OBUF(clk_INV_0:O)              | NONE(*)(memory_reader_ins/img/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/sel_pipe_0)                       | 37    |
+rst_OBUF                           | NONE(memory_reader_ins/img/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/sel_pipe_0)                          | 8     |
 memory_reader_ins/img/N1           | NONE(memory_reader_ins/img/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[0].ram.r/v5_init.ram/SP.SINGLE_PRIM18.SP)| 5     |
 -----------------------------------+-----------------------------------------------------------------------------------------------------------------------------------------------+-------+
-(*) This 1 clock signal(s) are generated by combinatorial logic,
-and XST is not able to identify which are the primary clock signals.
-Please use the CLOCK_SIGNAL constraint to specify the clock signal(s) generated by combinatorial logic.
 INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
 
 Asynchronous Control Signals Information:
@@ -500,7 +806,7 @@ Timing Summary:
 ---------------
 Speed Grade: -1
 
-   Minimum period: 5.104ns (Maximum Frequency: 195.925MHz)
+   Minimum period: No path found
    Minimum input arrival time before clock: No path found
    Maximum output required time after clock: No path found
    Maximum combinational path delay: No path found
@@ -510,42 +816,16 @@ Timing Detail:
 All values displayed in nanoseconds (ns)
 
 =========================================================================
-Timing constraint: Default period analysis for Clock 'clk_OBUF'
-  Clock period: 5.104ns (frequency: 195.925MHz)
-  Total number of paths / destination ports: 2045 / 114
--------------------------------------------------------------------------
-Delay:               5.104ns (Levels of Logic = 5)
-  Source:            memory_reader_ins/img/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/v5_init.ram/SP.SINGLE_PRIM18.SP (RAM)
-  Destination:       memory_reader_ins/col_6 (FF)
-  Source Clock:      clk_OBUF falling
-  Destination Clock: clk_OBUF falling
-
-  Data Path: memory_reader_ins/img/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/v5_init.ram/SP.SINGLE_PRIM18.SP to memory_reader_ins/col_6
-                                Gate     Net
-    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
-    ----------------------------------------  ------------
-     RAMB18:CLKA->DOA1     1   2.180   0.789  U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.r/v5_init.ram/SP.SINGLE_PRIM18.SP (U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[2].ram.ram_douta<1>)
-     LUT5:I1->O            2   0.094   0.794  U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/has_mux_a.A/Mmux_dout_mux41 (douta<3>)
-     end scope: 'memory_reader_ins/img'
-     LUT4:I0->O            1   0.094   0.480  memory_reader_ins/raddr_not00011_SW0_1 (memory_reader_ins/raddr_not00011_SW0)
-     LUT6:I5->O            2   0.094   0.485  memory_reader_ins/raddr_not00011 (memory_reader_ins/col_and0000)
-     LUT6:I5->O            1   0.094   0.000  memory_reader_ins/col_6_rstpot (memory_reader_ins/col_6_rstpot)
-     FDR:D                    -0.018          memory_reader_ins/col_6
-    ----------------------------------------
-    Total                      5.104ns (2.556ns logic, 2.548ns route)
-                                       (50.1% logic, 49.9% route)
-
-=========================================================================
 
 
-Total REAL time to Xst completion: 15.00 secs
-Total CPU time to Xst completion: 14.78 secs
+Total REAL time to Xst completion: 13.00 secs
+Total CPU time to Xst completion: 12.63 secs
  
 --> 
 
-Total memory usage is 4603940 kilobytes
+Total memory usage is 4603964 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :   86 (   0 filtered)
-Number of infos    :    6 (   0 filtered)
+Number of warnings :  306 (   0 filtered)
+Number of infos    :    2 (   0 filtered)
 

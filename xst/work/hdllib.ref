@@ -1,6 +1,7 @@
-MO memory_reader NULL memory_reader.v vlg07/memory__reader.bin 1576415639
-MO img_storage NULL ipcore_dir/img_storage.v vlg75/img__storage.bin 1576415639
+MO memory_reader NULL memory_reader.v vlg07/memory__reader.bin 1576854170
+MO img_storage NULL ipcore_dir/img_storage.v vlg75/img__storage.bin 1576854170
 MO top NULL top.v vlg6F/top.bin 1576412957
-MO tb NULL tb.v vlg26/tb.bin 1576415639
-MO core_sobel NULL core_sobel.v vlg4D/core__sobel.bin 1576415639
-MO main_sobel NULL main_sobel.v vlg2D/main__sobel.bin 1576415639
+MO tb NULL tb.v vlg26/tb.bin 1576854170
+MO core_median NULL core_median.v vlg6E/core__median.bin 1576854170
+MO core_sobel NULL core_sobel.v vlg4D/core__sobel.bin 1576854170
+MO main_sobel NULL main_sobel.v vlg2D/main__sobel.bin 1576854170

@@ -1,4 +1,4 @@
-Running: C:\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\fuse.exe -intstyle ise -incremental -lib unisims_ver -lib unimacro_ver -lib xilinxcorelib_ver -lib secureip -o C:/Users/eason/Desktop/Test/Test/tb_isim_beh.exe -prj C:/Users/eason/Desktop/Test/Test/tb_beh.prj work.tb work.glbl 
+Running: fuse.exe -relaunch -intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -lib "secureip" -o "C:/Users/eason/Desktop/Test/Test/tb_isim_beh.exe" -prj "C:/Users/eason/Desktop/Test/Test/tb_beh.prj" "work.tb" "work.glbl" 
 ISim P.20131013 (signature 0x7708f090)
 Number of CPUs detected in this system: 8
 Turning on mult-threading, number of parallel sub-compilation jobs: 16 
@@ -7,6 +7,7 @@ Analyzing Verilog file "C:/Users/eason/Desktop/Test/Test/ipcore_dir/img_storage.
 Analyzing Verilog file "C:/Users/eason/Desktop/Test/Test/core_sobel.v" into library work
 Analyzing Verilog file "C:/Users/eason/Desktop/Test/Test/memory_reader.v" into library work
 Analyzing Verilog file "C:/Users/eason/Desktop/Test/Test/main_sobel.v" into library work
+Analyzing Verilog file "C:/Users/eason/Desktop/Test/Test/core_median.v" into library work
 Analyzing Verilog file "C:/Users/eason/Desktop/Test/Test/tb.v" into library work
 Analyzing Verilog file "C:/Xilinx/14.7/ISE_DS/ISE//verilog/src/glbl.v" into library work
 Starting static elaboration
@@ -19,10 +20,11 @@ Compiling module img_storage
 Compiling module memory_reader
 Compiling module core_sobel
 Compiling module main_sobel
+Compiling module core_median
 Compiling module tb
 Compiling module glbl
 Time Resolution for simulation is 1ps.
-Compiled 10 Verilog Units
+Compiled 11 Verilog Units
 Built simulation executable C:/Users/eason/Desktop/Test/Test/tb_isim_beh.exe
-Fuse Memory Usage: 32708 KB
-Fuse CPU Usage: 1233 ms
+Fuse Memory Usage: 32688 KB
+Fuse CPU Usage: 718 ms
