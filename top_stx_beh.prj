@@ -1,7 +1,7 @@
-verilog isim_temp "ipcore_dir/img_storage.v"
 verilog isim_temp "core_sobel.v"
 verilog isim_temp "tb.v"
 verilog isim_temp "memory_reader.v"
 verilog isim_temp "main_sobel.v"
+verilog isim_temp "core_median.v"
 verilog isim_temp "top.v"
 verilog isim_temp "C:/Xilinx/14.7/ISE_DS/ISE//verilog/src/glbl.v"
